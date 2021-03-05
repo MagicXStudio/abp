@@ -3,6 +3,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Serilog;
+using Serilog.Core;
 using Serilog.Events;
 
 namespace Volo.Abp.SettingManagement.DemoApp
@@ -12,13 +13,13 @@ namespace Volo.Abp.SettingManagement.DemoApp
         public static int Main(string[] args)
         {
             Activity.DefaultIdFormat = ActivityIdFormat.W3C;
-            Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
-                .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
-                .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning)
-                .Enrich.FromLogContext()
-                .WriteTo.File("Logs/logs.txt")
-                .CreateLogger();
+            //Log.Logger = new LoggerConfiguration()
+            //    .MinimumLevel.Debug()
+            //    .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+            //    .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning)
+            //    .Enrich.FromLogContext()
+            //    .WriteTo.File("Logs/logs.txt")
+            //    .CreateLogger();
 
             try
             {
@@ -44,8 +45,12 @@ namespace Volo.Abp.SettingManagement.DemoApp
                     webBuilder.UseStartup<Startup>();
                 })
                 .UseAutofac()
-                 .UseSerilog((hostingContext, loggerConfig) =>
-                    loggerConfig.ReadFrom.Configuration(hostingContext.Configuration)
+                .UseSerilog((HostBuilderContext hostingContext, LoggerConfiguration loggerConfig) =>
+                   {
+                       LoggerConfiguration config = loggerConfig.ReadFrom.Configuration(hostingContext.Configuration);
+                       Logger logger =config.CreateLogger();
+                       logger.Information("Create Host Builder");
+                   }
                 );
     }
 }
