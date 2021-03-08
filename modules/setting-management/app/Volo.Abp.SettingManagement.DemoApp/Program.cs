@@ -13,14 +13,13 @@ namespace Volo.Abp.SettingManagement.DemoApp
         public static int Main(string[] args)
         {
             Activity.DefaultIdFormat = ActivityIdFormat.W3C;
-            //Log.Logger = new LoggerConfiguration()
-            //    .MinimumLevel.Debug()
-            //    .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
-            //    .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning)
-            //    .Enrich.FromLogContext()
-            //    .WriteTo.File("Logs/logs.txt")
-            //    .CreateLogger();
-
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+                .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning)
+                .Enrich.FromLogContext()
+                 .CreateLogger();
+            ;
             try
             {
                 Log.Information("Starting web host.");
