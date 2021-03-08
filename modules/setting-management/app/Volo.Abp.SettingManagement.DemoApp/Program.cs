@@ -48,8 +48,6 @@ namespace Volo.Abp.SettingManagement.DemoApp
                 .UseSerilog((HostBuilderContext hostingContext, LoggerConfiguration loggerConfig) =>
                    {
                        LoggerConfiguration config = loggerConfig.ReadFrom.Configuration(hostingContext.Configuration);
-                       Logger logger =config.CreateLogger();
-                       logger.Information("Create Host Builder");
                    }
                 );
     }
