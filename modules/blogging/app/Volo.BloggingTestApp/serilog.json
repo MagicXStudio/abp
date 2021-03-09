@@ -1,0 +1,71 @@
+{
+  "Serilog": {
+    "Enrich": [ "FromLogContext", "WithMachineName" ],
+    "MinimumLevel": {
+      "Default": "Information",
+      "Override": {
+        "Microsoft": "Information",
+        "System": "Warning",
+        "System.Net.Http.HttpClient": "Warning"
+      }
+    },
+    "Properties": {
+      "Application": "Volo.BloggingTestApp"
+    },
+    "WriteTo": [
+      { "Name": "Console" },
+      {
+        "Args": {
+          "configureLogger": {
+            "Filter": [
+              {
+                "Name": "ByIncludingOnly",
+                "Args": {
+                  "expression": "(@Level = 'Error' or @Level = 'Fatal'')"
+                }
+              }
+            ],
+            "WriteTo": [
+              {
+                "Args": {
+                  "outputTemplate": "{Timestamp:o} [{Level:u3}] ({SourceContext}) {Message}{NewLine}{Exception}",
+                  "path": "Logs/Error/log_.log",
+                  "retainedFileCountLimit": 7,
+                  "rollingInterval": "Day"
+                },
+                "Name": "File"
+              }
+            ]
+          }
+        },
+        "Name": "Logger"
+      },
+      {
+        "Args": {
+          "configureLogger": {
+            "Filter": [
+              {
+                "Args": {
+                  "expression": "@Level = 'Information'"
+                },
+                "Name": "ByIncludingOnly"
+              }
+            ],
+            "WriteTo": [
+              {
+                "Args": {
+                  "outputTemplate": "{Timestamp:o} [{Level:u3}] ({SourceContext}) {Message}{NewLine}{Exception}",
+                  "path": "Logs/Info/log_.log",
+                  "retainedFileCountLimit": 7,
+                  "rollingInterval": "Day"
+                },
+                "Name": "File"
+              }
+            ]
+          }
+        },
+        "Name": "Logger"
+      }
+    ]
+  }
+}

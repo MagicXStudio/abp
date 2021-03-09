@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Serilog;
 
 namespace Volo.BloggingTestApp
 {
@@ -14,6 +15,7 @@ namespace Volo.BloggingTestApp
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
+            Log.Information("Startup Configure");
             app.InitializeApplication();
         }
     }

@@ -16,7 +16,7 @@ namespace Volo.BloggingTestApp.Controllers
         }
         public ActionResult Index()
         {
-            return Json(new {Now=DateTime.Now });
+            return Redirect("/blogs/index");
         }
     }
 }

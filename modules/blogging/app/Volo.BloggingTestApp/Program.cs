@@ -1,9 +1,9 @@
 ﻿using System;
-using System.IO;
+using System.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Serilog;
-using Serilog.Events;
 
 namespace Volo.BloggingTestApp
 {
@@ -11,16 +11,14 @@ namespace Volo.BloggingTestApp
     {
         public static int Main(string[] args)
         {
+            Activity.DefaultIdFormat = ActivityIdFormat.W3C;
             Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug() //TODO: Should be configurable!
-                .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
-                .Enrich.FromLogContext()
-                .WriteTo.File("Logs/logs.txt")
+                .MinimumLevel.Debug()
                 .CreateLogger();
 
             try
             {
-                Log.Information("Starting web host.");
+                Log.Information("启动 Web Host.");
                 CreateHostBuilder(args).Build().Run();
                 return 0;
             }
@@ -37,11 +35,21 @@ namespace Volo.BloggingTestApp
 
         internal static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration(config =>
+                {
+                    config
+                        .AddJsonFile("serilog.json", false, true)
+                        .AddEnvironmentVariables();
+                })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
                 })
                 .UseAutofac()
-                .UseSerilog();
+                .UseSerilog((HostBuilderContext hostingContext, LoggerConfiguration loggerConfig) =>
+                {
+                    LoggerConfiguration config = loggerConfig.ReadFrom.Configuration(hostingContext.Configuration);
+                }
+                );
     }
 }

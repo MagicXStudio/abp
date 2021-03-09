@@ -1,0 +1,1 @@
+app.UseAuthorization() must appear between app.UseRouting() and app.UseEndpoints(...)
