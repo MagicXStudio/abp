@@ -1,9 +1,11 @@
 //#define MONGODB
 
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Localization;
@@ -170,15 +172,12 @@ namespace Volo.BloggingTestApp
 
             app.UseConfiguredEndpoints();
 
-
             using (var scope = context.ServiceProvider.CreateScope())
             {
-                AsyncHelper.RunSync(async () =>
-                {
-                    await scope.ServiceProvider
-                        .GetRequiredService<IDataSeeder>()
-                        .SeedAsync();
-                });
+                AsyncHelper.RunSync(() =>
+               {
+                   return Task.Run(() => Console.WriteLine("Hello ABP"));
+               });
             }
         }
     }
