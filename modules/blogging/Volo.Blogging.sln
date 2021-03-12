@@ -85,6 +85,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.Security", "..\..\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.Threading", "..\..\framework\src\Volo.Abp.Threading\Volo.Abp.Threading.csproj", "{E9D7EC30-50B7-40CB-A8BE-F7530B2F56F1}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.BlobStoring", "..\..\framework\src\Volo.Abp.BlobStoring\Volo.Abp.BlobStoring.csproj", "{29B16109-FFC8-4D50-95AE-B6B70E8BD795}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.BlobStoring.Database.EntityFrameworkCore", "..\blob-storing-database\src\Volo.Abp.BlobStoring.Database.EntityFrameworkCore\Volo.Abp.BlobStoring.Database.EntityFrameworkCore.csproj", "{A6A7F0D5-F586-4D50-9F6E-E0E6F2A8952E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -223,6 +227,14 @@ Global
 		{E9D7EC30-50B7-40CB-A8BE-F7530B2F56F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9D7EC30-50B7-40CB-A8BE-F7530B2F56F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9D7EC30-50B7-40CB-A8BE-F7530B2F56F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29B16109-FFC8-4D50-95AE-B6B70E8BD795}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29B16109-FFC8-4D50-95AE-B6B70E8BD795}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29B16109-FFC8-4D50-95AE-B6B70E8BD795}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29B16109-FFC8-4D50-95AE-B6B70E8BD795}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6A7F0D5-F586-4D50-9F6E-E0E6F2A8952E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6A7F0D5-F586-4D50-9F6E-E0E6F2A8952E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6A7F0D5-F586-4D50-9F6E-E0E6F2A8952E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6A7F0D5-F586-4D50-9F6E-E0E6F2A8952E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -265,6 +277,8 @@ Global
 		{6E6863FE-658E-4CD5-8125-7242AE2EF195} = {01A87667-B95B-4A6F-A380-AEC6F3812B34}
 		{E9C8A6CB-5EC9-43C6-B612-F9754EDF0DDC} = {01A87667-B95B-4A6F-A380-AEC6F3812B34}
 		{E9D7EC30-50B7-40CB-A8BE-F7530B2F56F1} = {01A87667-B95B-4A6F-A380-AEC6F3812B34}
+		{29B16109-FFC8-4D50-95AE-B6B70E8BD795} = {01A87667-B95B-4A6F-A380-AEC6F3812B34}
+		{A6A7F0D5-F586-4D50-9F6E-E0E6F2A8952E} = {01A87667-B95B-4A6F-A380-AEC6F3812B34}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F2BAE819-78D4-407A-9201-22473B2850B0}

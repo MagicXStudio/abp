@@ -112,6 +112,8 @@ namespace Volo.BloggingTestApp
                     options.SwaggerDoc("v1", new OpenApiInfo { Title = "Blogging API", Version = "v1" });
                     options.DocInclusionPredicate((docName, description) => true);
                     options.CustomSchemaIds(type => type.FullName);
+                    //添加读取注释服务
+                    options.IncludeXmlComments($"{Environment.CurrentDirectory}/bin/Debug/net5.0/Volo.Blogging.Admin.Application.xml", true);
                 });
 
             var cultures = new List<CultureInfo>
