@@ -89,6 +89,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.BlobStoring", "..\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.BlobStoring.Database.EntityFrameworkCore", "..\blob-storing-database\src\Volo.Abp.BlobStoring.Database.EntityFrameworkCore\Volo.Abp.BlobStoring.Database.EntityFrameworkCore.csproj", "{A6A7F0D5-F586-4D50-9F6E-E0E6F2A8952E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.Account.Web", "..\account\src\Volo.Abp.Account.Web\Volo.Abp.Account.Web.csproj", "{7C2A4337-2814-4705-B002-571406AB7B51}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.Account.Web.IdentityServer", "..\account\src\Volo.Abp.Account.Web.IdentityServer\Volo.Abp.Account.Web.IdentityServer.csproj", "{CECD144A-E0A6-481C-B113-B18A5E449DBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -235,6 +239,14 @@ Global
 		{A6A7F0D5-F586-4D50-9F6E-E0E6F2A8952E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6A7F0D5-F586-4D50-9F6E-E0E6F2A8952E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6A7F0D5-F586-4D50-9F6E-E0E6F2A8952E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C2A4337-2814-4705-B002-571406AB7B51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C2A4337-2814-4705-B002-571406AB7B51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C2A4337-2814-4705-B002-571406AB7B51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C2A4337-2814-4705-B002-571406AB7B51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CECD144A-E0A6-481C-B113-B18A5E449DBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CECD144A-E0A6-481C-B113-B18A5E449DBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CECD144A-E0A6-481C-B113-B18A5E449DBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CECD144A-E0A6-481C-B113-B18A5E449DBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -279,6 +291,8 @@ Global
 		{E9D7EC30-50B7-40CB-A8BE-F7530B2F56F1} = {01A87667-B95B-4A6F-A380-AEC6F3812B34}
 		{29B16109-FFC8-4D50-95AE-B6B70E8BD795} = {01A87667-B95B-4A6F-A380-AEC6F3812B34}
 		{A6A7F0D5-F586-4D50-9F6E-E0E6F2A8952E} = {01A87667-B95B-4A6F-A380-AEC6F3812B34}
+		{7C2A4337-2814-4705-B002-571406AB7B51} = {01A87667-B95B-4A6F-A380-AEC6F3812B34}
+		{CECD144A-E0A6-481C-B113-B18A5E449DBE} = {01A87667-B95B-4A6F-A380-AEC6F3812B34}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F2BAE819-78D4-407A-9201-22473B2850B0}

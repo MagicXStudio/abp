@@ -1,20 +1,18 @@
-//#define MONGODB
-
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.Swagger;
 using Volo.Abp;
 using Volo.Abp.Account;
 using Volo.Abp.Account.Web;
@@ -23,7 +21,6 @@ using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
 using Volo.Abp.AspNetCore.Mvc.UI.Theming;
-using Volo.Abp.Authorization.Permissions;
 using Volo.Abp.Autofac;
 using Volo.Abp.BlobStoring;
 using Volo.Abp.BlobStoring.Database;
@@ -39,7 +36,6 @@ using Volo.Abp.UI;
 using Volo.Abp.VirtualFileSystem;
 using Volo.Blogging;
 using Volo.Blogging.Admin;
-using Volo.Blogging.Files;
 using Volo.BloggingTestApp.EntityFrameworkCore;
 
 namespace Volo.BloggingTestApp
@@ -68,8 +64,8 @@ namespace Volo.BloggingTestApp
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
-            var hostingEnvironment = context.Services.GetHostingEnvironment();
-            var configuration = context.Services.GetConfiguration();
+            IWebHostEnvironment hostingEnvironment = context.Services.GetHostingEnvironment();
+            IConfiguration configuration = context.Services.GetConfiguration();
 
             Configure<BloggingUrlOptions>(options =>
             {
@@ -78,20 +74,35 @@ namespace Volo.BloggingTestApp
 
             Configure<AbpDbConnectionOptions>(options =>
             {
-#if MONGODB
-                const string connStringName = "MongoDb";
-#else
                 const string connStringName = "SqlServer";
-#endif
                 options.ConnectionStrings.Default = configuration.GetConnectionString(connStringName);
             });
 
-#if !MONGODB
             Configure<AbpDbContextOptions>(options =>
             {
                 options.UseSqlServer();
             });
-#endif
+
+            context.Services.AddAuthentication(sharedOptions =>
+            {
+                sharedOptions.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            })
+            .AddCookie(cookie =>
+            {
+                cookie.SlidingExpiration = true;
+                cookie.ExpireTimeSpan = TimeSpan.FromDays(1);
+            })
+            .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, "Jwt Bearer", options =>
+                {
+                    options.Authority = configuration["AuthServer:Authority"];
+                    options.RequireHttpsMetadata = false;
+                    options.TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        ValidateAudience = false,
+                        ValidateIssuer = false,
+                    };
+                });
+
             if (hostingEnvironment.IsDevelopment())
             {
                 Configure<AbpVirtualFileSystemOptions>(options =>
