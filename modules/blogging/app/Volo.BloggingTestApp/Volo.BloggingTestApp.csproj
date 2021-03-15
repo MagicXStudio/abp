@@ -23,6 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\framework\src\Volo.Abp.Caching.StackExchangeRedis\Volo.Abp.Caching.StackExchangeRedis.csproj" />
+    <ProjectReference Include="..\..\..\account\src\Volo.Abp.Account.Web.IdentityServer\Volo.Abp.Account.Web.IdentityServer.csproj" />
     <ProjectReference Include="..\Volo.BloggingTestApp.EntityFrameworkCore\Volo.BloggingTestApp.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\..\src\Volo.Blogging.Application\Volo.Blogging.Application.csproj" />
     <ProjectReference Include="..\..\src\Volo.Blogging.Web\Volo.Blogging.Web.csproj" />

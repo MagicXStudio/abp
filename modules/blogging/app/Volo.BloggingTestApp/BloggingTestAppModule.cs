@@ -45,11 +45,8 @@ namespace Volo.BloggingTestApp
         typeof(BloggingApplicationModule),
         typeof(BloggingAdminWebModule),
         typeof(BloggingAdminApplicationModule),
-#if MONGODB
-               typeof(BloggingTestAppMongoDbModule),
-#else
+        typeof(AbpAccountWebIdentityServerModule),
         typeof(BloggingTestAppEntityFrameworkCoreModule),
-#endif
         typeof(AbpAccountWebModule),
         typeof(AbpAccountApplicationModule),
         typeof(AbpIdentityWebModule),
