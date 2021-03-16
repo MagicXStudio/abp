@@ -28,6 +28,7 @@ using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.Identity;
 using Volo.Abp.Identity.Web;
+using Volo.Abp.IdentityServer.Jwt;
 using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement;
 using Volo.Abp.PermissionManagement.Identity;
@@ -82,7 +83,7 @@ namespace Volo.BloggingTestApp
 
             context.Services.AddAuthentication(sharedOptions =>
             {
-                sharedOptions.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                // sharedOptions.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
             })
             .AddCookie(cookie =>
             {
@@ -156,7 +157,7 @@ namespace Volo.BloggingTestApp
         public override void OnApplicationInitialization(ApplicationInitializationContext context)
         {
             var app = context.GetApplicationBuilder();
-
+            app.UseCorrelationId();
             if (context.GetEnvironment().IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -165,9 +166,9 @@ namespace Volo.BloggingTestApp
             {
                 app.UseErrorPage();
             }
-
+            app.UseAbpClaimsMap();
             app.UseVirtualFiles();
-
+            app.UseUnitOfWork();
             app.UseRouting();
 
             app.UseSwagger();
@@ -177,9 +178,11 @@ namespace Volo.BloggingTestApp
             });
 
             app.UseAuthentication();
-
+            app.UseAuthorization();
+            app.UseJwtTokenMiddleware("Bearer");
             app.UseAbpRequestLocalization();
-
+            app.UseAuditing();
+           // app.UseAbpSerilogEnrichers();
             app.UseConfiguredEndpoints();
 
             using (var scope = context.ServiceProvider.CreateScope())

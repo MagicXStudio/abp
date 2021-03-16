@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Volo.Abp;
 using Volo.Abp.Application.Dtos;
@@ -38,6 +40,8 @@ namespace Volo.Blogging
         [Route("{id}")]
         public async Task<BlogDto> GetAsync(Guid id)
         {
+            var data = await HttpContext.AuthenticateAsync();
+            var claims = from c in User.Claims select new { c.Type, c.Value };
             return await _blogAppService.GetAsync(id);
         }
     }
