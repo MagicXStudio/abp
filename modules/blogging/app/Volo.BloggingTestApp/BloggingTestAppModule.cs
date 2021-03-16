@@ -60,11 +60,16 @@ namespace Volo.BloggingTestApp
     )]
     public class BloggingTestAppModule : AbpModule
     {
+        public BloggingTestAppModule()
+        {
+
+        }
+        IConfiguration Config { get; set; }
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
             IWebHostEnvironment hostingEnvironment = context.Services.GetHostingEnvironment();
             IConfiguration configuration = context.Services.GetConfiguration();
-
+            Config = configuration;
             Configure<BloggingUrlOptions>(options =>
             {
                 options.RoutePrefix = null;
@@ -166,6 +171,7 @@ namespace Volo.BloggingTestApp
             {
                 app.UseErrorPage();
             }
+            app.UseMiddleware<AdminSafeMiddleware>(Config["ip"]);
             app.UseAbpClaimsMap();
             app.UseVirtualFiles();
             app.UseUnitOfWork();
@@ -182,7 +188,7 @@ namespace Volo.BloggingTestApp
             app.UseJwtTokenMiddleware("Bearer");
             app.UseAbpRequestLocalization();
             app.UseAuditing();
-           // app.UseAbpSerilogEnrichers();
+            // app.UseAbpSerilogEnrichers();
             app.UseConfiguredEndpoints();
 
             using (var scope = context.ServiceProvider.CreateScope())

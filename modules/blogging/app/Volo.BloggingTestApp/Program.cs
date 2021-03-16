@@ -39,6 +39,7 @@ namespace Volo.BloggingTestApp
                 {
                     config
                         .AddJsonFile("serilog.json", false, true)
+                        .AddJsonFile("admin.json", false, true)
                         .AddEnvironmentVariables();
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
