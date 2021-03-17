@@ -1,9 +1,14 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Threading.Tasks;
 using Volo.Abp;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Domain.Entities;
+using Volo.Abp.Uow;
 using Volo.Blogging.Blogs.Dtos;
 
 namespace Volo.Blogging.Blogs
@@ -12,11 +17,13 @@ namespace Volo.Blogging.Blogs
     {
         private readonly IBlogRepository _blogRepository;
 
-        public BlogAppService(IBlogRepository blogRepository)
+        public BlogAppService(IBlogRepository blogRepository, IOptionsMonitor<AuthorizationOptions> options, ILogger logger)
         {
             _blogRepository = blogRepository;
+            Logger = logger;
         }
 
+        protected ILogger Logger { get; }
         public async Task<ListResultDto<BlogDto>> GetListAsync()
         {
             var blogs = await _blogRepository.GetListAsync();
@@ -40,6 +47,7 @@ namespace Volo.Blogging.Blogs
             return ObjectMapper.Map<Blog, BlogDto>(blog);
         }
 
+        [UnitOfWork(false, IsolationLevel.ReadUncommitted,20)]
         public async Task<BlogDto> GetAsync(Guid id)
         {
             var blog = await _blogRepository.GetAsync(id);

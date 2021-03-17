@@ -93,6 +93,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.Account.Web", "..\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.Account.Web.IdentityServer", "..\account\src\Volo.Abp.Account.Web.IdentityServer\Volo.Abp.Account.Web.IdentityServer.csproj", "{CECD144A-E0A6-481C-B113-B18A5E449DBE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.Ddd.Domain", "..\..\framework\src\Volo.Abp.Ddd.Domain\Volo.Abp.Ddd.Domain.csproj", "{3FA63C97-FEE2-49B9-A972-E6191C76840A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.Ddd.Application", "..\..\framework\src\Volo.Abp.Ddd.Application\Volo.Abp.Ddd.Application.csproj", "{EE90FD45-44F9-4BB2-B7E6-0EB139B5333A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.Uow", "..\..\framework\src\Volo.Abp.Uow\Volo.Abp.Uow.csproj", "{25DDDE81-B5F3-42F0-9FAF-B766F77E2E0B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -247,6 +253,18 @@ Global
 		{CECD144A-E0A6-481C-B113-B18A5E449DBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CECD144A-E0A6-481C-B113-B18A5E449DBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CECD144A-E0A6-481C-B113-B18A5E449DBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FA63C97-FEE2-49B9-A972-E6191C76840A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FA63C97-FEE2-49B9-A972-E6191C76840A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FA63C97-FEE2-49B9-A972-E6191C76840A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FA63C97-FEE2-49B9-A972-E6191C76840A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE90FD45-44F9-4BB2-B7E6-0EB139B5333A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE90FD45-44F9-4BB2-B7E6-0EB139B5333A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE90FD45-44F9-4BB2-B7E6-0EB139B5333A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE90FD45-44F9-4BB2-B7E6-0EB139B5333A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25DDDE81-B5F3-42F0-9FAF-B766F77E2E0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25DDDE81-B5F3-42F0-9FAF-B766F77E2E0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25DDDE81-B5F3-42F0-9FAF-B766F77E2E0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25DDDE81-B5F3-42F0-9FAF-B766F77E2E0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -293,6 +311,9 @@ Global
 		{A6A7F0D5-F586-4D50-9F6E-E0E6F2A8952E} = {01A87667-B95B-4A6F-A380-AEC6F3812B34}
 		{7C2A4337-2814-4705-B002-571406AB7B51} = {01A87667-B95B-4A6F-A380-AEC6F3812B34}
 		{CECD144A-E0A6-481C-B113-B18A5E449DBE} = {01A87667-B95B-4A6F-A380-AEC6F3812B34}
+		{3FA63C97-FEE2-49B9-A972-E6191C76840A} = {01A87667-B95B-4A6F-A380-AEC6F3812B34}
+		{EE90FD45-44F9-4BB2-B7E6-0EB139B5333A} = {01A87667-B95B-4A6F-A380-AEC6F3812B34}
+		{25DDDE81-B5F3-42F0-9FAF-B766F77E2E0B} = {01A87667-B95B-4A6F-A380-AEC6F3812B34}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F2BAE819-78D4-407A-9201-22473B2850B0}

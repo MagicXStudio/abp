@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 using System.Security.Claims;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.Security.Claims;
@@ -8,6 +9,10 @@ namespace Volo.CmsKit.Security
     [Dependency(ReplaceServices = true)]
     public class FakeCurrentPrincipalAccessor : ThreadCurrentPrincipalAccessor
     {
+        public FakeCurrentPrincipalAccessor(ILogger<FakeCurrentPrincipalAccessor> logger):base(logger)
+        {
+
+        }
         protected override ClaimsPrincipal GetClaimsPrincipal()
         {
             return GetPrincipal();
