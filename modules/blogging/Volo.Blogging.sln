@@ -99,6 +99,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.Ddd.Application", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.Uow", "..\..\framework\src\Volo.Abp.Uow\Volo.Abp.Uow.csproj", "{25DDDE81-B5F3-42F0-9FAF-B766F77E2E0B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.Dapper", "..\..\framework\src\Volo.Abp.Dapper\Volo.Abp.Dapper.csproj", "{1337E52E-D470-4F0C-AC56-B4BA73974871}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -265,6 +267,10 @@ Global
 		{25DDDE81-B5F3-42F0-9FAF-B766F77E2E0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25DDDE81-B5F3-42F0-9FAF-B766F77E2E0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25DDDE81-B5F3-42F0-9FAF-B766F77E2E0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1337E52E-D470-4F0C-AC56-B4BA73974871}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1337E52E-D470-4F0C-AC56-B4BA73974871}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1337E52E-D470-4F0C-AC56-B4BA73974871}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1337E52E-D470-4F0C-AC56-B4BA73974871}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -314,6 +320,7 @@ Global
 		{3FA63C97-FEE2-49B9-A972-E6191C76840A} = {01A87667-B95B-4A6F-A380-AEC6F3812B34}
 		{EE90FD45-44F9-4BB2-B7E6-0EB139B5333A} = {01A87667-B95B-4A6F-A380-AEC6F3812B34}
 		{25DDDE81-B5F3-42F0-9FAF-B766F77E2E0B} = {01A87667-B95B-4A6F-A380-AEC6F3812B34}
+		{1337E52E-D470-4F0C-AC56-B4BA73974871} = {01A87667-B95B-4A6F-A380-AEC6F3812B34}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F2BAE819-78D4-407A-9201-22473B2850B0}
