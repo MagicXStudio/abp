@@ -19,10 +19,10 @@
           "configureLogger": {
             "Filter": [
               {
-                "Name": "ByIncludingOnly",
                 "Args": {
                   "expression": "(@Level = 'Error' or @Level = 'Fatal'')"
-                }
+                },
+                "Name": "ByIncludingOnly"
               }
             ],
             "WriteTo": [

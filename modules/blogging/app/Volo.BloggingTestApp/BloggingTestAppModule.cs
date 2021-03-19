@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -16,6 +16,7 @@ using Microsoft.OpenApi.Models;
 using Volo.Abp;
 using Volo.Abp.Account;
 using Volo.Abp.Account.Web;
+using Volo.Abp.AspNetCore.Mvc.AntiForgery;
 using Volo.Abp.AspNetCore.Mvc.UI;
 using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
@@ -130,11 +131,9 @@ namespace Volo.BloggingTestApp
                     options.IncludeXmlComments($"{Environment.CurrentDirectory}/bin/Debug/net5.0/Volo.Blogging.Admin.Application.xml", true);
                 });
 
-            var cultures = new List<CultureInfo>
+            List<CultureInfo> cultures = new List<CultureInfo>
             {
-                new CultureInfo("cs"),
                 new CultureInfo("en"),
-                new CultureInfo("tr"),
                 new CultureInfo("zh-Hans")
             };
 
@@ -156,6 +155,14 @@ namespace Volo.BloggingTestApp
                 {
                     container.UseDatabase();
                 });
+            });
+            Configure<AntiforgeryOptions>(x =>
+            {
+
+            });
+            Configure<AbpAntiForgeryOptions>(x =>
+            {
+                x.TokenCookie.HttpOnly = true;
             });
         }
 

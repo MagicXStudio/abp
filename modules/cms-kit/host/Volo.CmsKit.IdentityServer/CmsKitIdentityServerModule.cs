@@ -65,7 +65,7 @@ namespace Volo.CmsKit
         typeof(AbpPermissionManagementApplicationModule),
         typeof(AbpPermissionManagementHttpApiModule),
         typeof(AbpSettingManagementEntityFrameworkCoreModule),
-        typeof(AbpFeatureManagementApplicationModule),
+        //typeof(AbpFeatureManagementApplicationModule),
         typeof(AbpTenantManagementEntityFrameworkCoreModule),
         typeof(AbpTenantManagementApplicationModule),
         typeof(AbpTenantManagementHttpApiModule),
@@ -89,7 +89,7 @@ namespace Volo.CmsKit
 
             Configure<AbpDbContextOptions>(options =>
             {
-                options.UseSqlServer();
+                options.UseMySQL();
             });
 
             context.Services.AddSwaggerGen(
@@ -209,7 +209,7 @@ namespace Volo.CmsKit
             app.UseAbpSerilogEnrichers();
             app.UseConfiguredEndpoints();
 
-            SeedData(context);
+            //SeedData(context);
         }
 
         private void SeedData(ApplicationInitializationContext context)

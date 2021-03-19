@@ -16,18 +16,21 @@ namespace Volo.Blogging.Blogs
     public class BlogAppService : BloggingAppServiceBase, IBlogAppService
     {
         private readonly IBlogRepository _blogRepository;
+        ISummaryRepository SummaryRepository { get; }
 
-        public BlogAppService(IBlogRepository blogRepository, IOptionsMonitor<AuthorizationOptions> options, ILogger logger)
+        public BlogAppService(IBlogRepository blogRepository,  ISummaryRepository summaryRepository)
         {
+            //IOptionsMonitor<AuthorizationOptions> options, ILogger logger,
             _blogRepository = blogRepository;
-            Logger = logger;
+          //  Logger = logger;
+            SummaryRepository = summaryRepository;
         }
 
         protected ILogger Logger { get; }
         public async Task<ListResultDto<BlogDto>> GetListAsync()
         {
             var blogs = await _blogRepository.GetListAsync();
-
+            await SummaryRepository.Transfer(1, 2, 3);
             return new ListResultDto<BlogDto>(
                 ObjectMapper.Map<List<Blog>, List<BlogDto>>(blogs)
             );
@@ -47,7 +50,7 @@ namespace Volo.Blogging.Blogs
             return ObjectMapper.Map<Blog, BlogDto>(blog);
         }
 
-        [UnitOfWork(false, IsolationLevel.ReadUncommitted,20)]
+        [UnitOfWork(false, IsolationLevel.ReadUncommitted, 20)]
         public async Task<BlogDto> GetAsync(Guid id)
         {
             var blog = await _blogRepository.GetAsync(id);

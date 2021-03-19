@@ -12,19 +12,17 @@ namespace Volo.CmsKit
         public static int Main(string[] args)
         {
             Log.Logger = new LoggerConfiguration()
-#if DEBUG
                 .MinimumLevel.Debug()
-#else
                 .MinimumLevel.Information()
-#endif
                 .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
                 .Enrich.FromLogContext()
-                .WriteTo.File("Logs/logs.txt")
+                .WriteTo.File("Logs/IdentityServer.txt")
+                .WriteTo.Console()
                 .CreateLogger();
 
             try
             {
-                Log.Information("Starting web host.");
+                Log.Information("Starting IdentityServer web host.");
                 CreateHostBuilder(args).Build().Run();
                 return 0;
             }
