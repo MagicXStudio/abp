@@ -4,6 +4,7 @@ using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap;
 using Volo.Abp.AspNetCore.Mvc.UI.Bundling;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
+using Volo.Abp.TenantManagement.Web;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.VirtualFileSystem;
 using Volo.Blogging.Localization;
@@ -14,6 +15,7 @@ namespace Volo.Blogging.Admin
         typeof(BloggingAdminHttpApiModule),
         typeof(AbpAspNetCoreMvcUiBootstrapModule),
         typeof(AbpAspNetCoreMvcUiBundlingModule),
+        typeof(AbpTenantManagementWebModule),
         typeof(AbpAutoMapperModule)
     )]
     public class BloggingAdminWebModule : AbpModule

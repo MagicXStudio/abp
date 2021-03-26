@@ -43,6 +43,7 @@ using Volo.Abp.TenantManagement;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
 using Volo.Abp.Threading;
 using Volo.Abp.UI.Navigation.Urls;
+using Volo.Abp.AspNetCore.Mvc.AntiForgery;
 
 namespace Volo.CmsKit
 {
@@ -134,6 +135,11 @@ namespace Volo.CmsKit
             Configure<AbpDistributedCacheOptions>(options =>
             {
                 options.KeyPrefix = "CmsKit:";
+            });
+
+            Configure<AbpAntiForgeryOptions>(options =>
+            {
+
             });
 
             Configure<AbpMultiTenancyOptions>(options =>

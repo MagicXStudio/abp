@@ -3,6 +3,8 @@ using Volo.Abp.AutoMapper;
 using Volo.Abp.Domain;
 using Volo.Abp.Domain.Entities.Events.Distributed;
 using Volo.Abp.Modularity;
+using Volo.Abp.MultiTenancy;
+using Volo.Abp.TenantManagement;
 using Volo.Blogging.Blogs;
 using Volo.Blogging.Comments;
 using Volo.Blogging.Posts;
@@ -13,6 +15,7 @@ namespace Volo.Blogging
     [DependsOn(
         typeof(BloggingDomainSharedModule),
         typeof(AbpDddDomainModule),
+        typeof(AbpTenantManagementDomainModule),
         typeof(AbpAutoMapperModule))]
     public class BloggingDomainModule : AbpModule
     {
@@ -24,7 +27,11 @@ namespace Volo.Blogging
             {
                 options.AddProfile<BloggingDomainMappingProfile>(validate: true);
             });
-
+            Configure<AbpMultiTenancyOptions>(options =>
+            {
+                options.IsEnabled =true;
+                options.DatabaseStyle = MultiTenancyDatabaseStyle.Hybrid;
+            });
             Configure<AbpDistributedEntityEventOptions>(options =>
             {
                 options.EtoMappings.Add<Blog, BlogEto>(typeof(BloggingDomainModule));

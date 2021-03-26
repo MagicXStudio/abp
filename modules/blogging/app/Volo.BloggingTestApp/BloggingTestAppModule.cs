@@ -16,6 +16,7 @@ using Microsoft.OpenApi.Models;
 using Volo.Abp;
 using Volo.Abp.Account;
 using Volo.Abp.Account.Web;
+using Volo.Abp.AspNetCore.MultiTenancy;
 using Volo.Abp.AspNetCore.Mvc.AntiForgery;
 using Volo.Abp.AspNetCore.Mvc.UI;
 using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap;
@@ -33,6 +34,7 @@ using Volo.Abp.IdentityServer.Jwt;
 using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement;
 using Volo.Abp.PermissionManagement.Identity;
+using Volo.Abp.TenantManagement.Web;
 using Volo.Abp.Threading;
 using Volo.Abp.UI;
 using Volo.Abp.VirtualFileSystem;
@@ -56,6 +58,7 @@ namespace Volo.BloggingTestApp
         typeof(AbpPermissionManagementDomainIdentityModule),
         typeof(AbpPermissionManagementApplicationModule),
         typeof(BlobStoringDatabaseDomainModule),
+        
         typeof(AbpAutofacModule),
         typeof(AbpAspNetCoreMvcUiBasicThemeModule)
     )]
@@ -74,6 +77,10 @@ namespace Volo.BloggingTestApp
             Configure<BloggingUrlOptions>(options =>
             {
                 options.RoutePrefix = null;
+            });
+            Configure<AbpAspNetCoreMultiTenancyOptions>(options =>
+            {
+                options.TenantKey = "xtenant";
             });
 
             Configure<AbpDbConnectionOptions>(options =>

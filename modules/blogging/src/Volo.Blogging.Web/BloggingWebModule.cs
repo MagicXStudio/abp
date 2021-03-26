@@ -7,6 +7,7 @@ using Volo.Abp.AspNetCore.Mvc.UI.Bundling;
 using Volo.Abp.AspNetCore.Mvc.UI.Packages.Prismjs;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
+using Volo.Abp.TenantManagement.Web;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.VirtualFileSystem;
 using Volo.Blogging.Bundling;
@@ -18,6 +19,7 @@ namespace Volo.Blogging
         typeof(BloggingHttpApiModule),
         typeof(AbpAspNetCoreMvcUiBootstrapModule),
         typeof(AbpAspNetCoreMvcUiBundlingModule),
+        typeof(AbpTenantManagementWebModule),
         typeof(AbpAutoMapperModule)
     )]
     public class BloggingWebModule : AbpModule

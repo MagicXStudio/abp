@@ -4,6 +4,7 @@ using Volo.Abp.AutoMapper;
 using Volo.Abp.BlobStoring;
 using Volo.Abp.Caching;
 using Volo.Abp.Modularity;
+using Volo.Abp.TenantManagement;
 using Volo.Blogging.Comments;
 using Volo.Blogging.Posts;
 
@@ -12,6 +13,7 @@ namespace Volo.Blogging
     [DependsOn(
         typeof(BloggingDomainModule),
         typeof(BloggingApplicationContractsModule),
+        typeof(AbpTenantManagementApplicationModule),
         typeof(AbpCachingModule),
         typeof(AbpAutoMapperModule),
         typeof(AbpBlobStoringModule))]

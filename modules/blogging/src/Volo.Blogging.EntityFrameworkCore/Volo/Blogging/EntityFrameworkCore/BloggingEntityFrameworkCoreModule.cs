@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.Modularity;
+using Volo.Abp.TenantManagement.EntityFrameworkCore;
 using Volo.Blogging.Blogs;
 using Volo.Blogging.Comments;
 using Volo.Blogging.Posts;
@@ -11,6 +12,7 @@ namespace Volo.Blogging.EntityFrameworkCore
 {
     [DependsOn(
         typeof(BloggingDomainModule),
+        typeof(AbpTenantManagementEntityFrameworkCoreModule),
         typeof(AbpEntityFrameworkCoreModule))]
     public class BloggingEntityFrameworkCoreModule : AbpModule
     {

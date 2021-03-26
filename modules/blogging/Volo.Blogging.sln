@@ -101,6 +101,24 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.Uow", "..\..\frame
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.Dapper", "..\..\framework\src\Volo.Abp.Dapper\Volo.Abp.Dapper.csproj", "{1337E52E-D470-4F0C-AC56-B4BA73974871}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{C8A6EB56-D948-4E15-8388-1BBF90AF839C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.TenantManagement.Web", "..\tenant-management\src\Volo.Abp.TenantManagement.Web\Volo.Abp.TenantManagement.Web.csproj", "{394FB7D4-791F-46F5-AB70-5AFB7AD67CAA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tenant-management", "tenant-management", "{65B2F528-8B96-437E-A6D8-D7AB6AD140E2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.TenantManagement.Domain", "..\tenant-management\src\Volo.Abp.TenantManagement.Domain\Volo.Abp.TenantManagement.Domain.csproj", "{2E4B13F1-CA3A-4935-A435-04E623AB038D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.TenantManagement.EntityFrameworkCore", "..\tenant-management\src\Volo.Abp.TenantManagement.EntityFrameworkCore\Volo.Abp.TenantManagement.EntityFrameworkCore.csproj", "{A6606518-0396-495E-935C-9AAB92767127}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.TenantManagement.Application", "..\tenant-management\src\Volo.Abp.TenantManagement.Application\Volo.Abp.TenantManagement.Application.csproj", "{E4F8FA98-9A2D-4DD1-9ADE-E02B0219E87D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.TenantManagement.Application.Contracts", "..\tenant-management\src\Volo.Abp.TenantManagement.Application.Contracts\Volo.Abp.TenantManagement.Application.Contracts.csproj", "{0B11AECD-80F2-44FE-BEE0-5313C898CCEA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.TenantManagement.Domain.Shared", "..\tenant-management\src\Volo.Abp.TenantManagement.Domain.Shared\Volo.Abp.TenantManagement.Domain.Shared.csproj", "{8176EBB8-EA14-491A-B5FC-74B56E197D9E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.MultiTenancy", "..\..\framework\src\Volo.Abp.MultiTenancy\Volo.Abp.MultiTenancy.csproj", "{617D6D6E-EF16-45BA-8391-E1886010034B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -271,6 +289,34 @@ Global
 		{1337E52E-D470-4F0C-AC56-B4BA73974871}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1337E52E-D470-4F0C-AC56-B4BA73974871}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1337E52E-D470-4F0C-AC56-B4BA73974871}.Release|Any CPU.Build.0 = Release|Any CPU
+		{394FB7D4-791F-46F5-AB70-5AFB7AD67CAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{394FB7D4-791F-46F5-AB70-5AFB7AD67CAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{394FB7D4-791F-46F5-AB70-5AFB7AD67CAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{394FB7D4-791F-46F5-AB70-5AFB7AD67CAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E4B13F1-CA3A-4935-A435-04E623AB038D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E4B13F1-CA3A-4935-A435-04E623AB038D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E4B13F1-CA3A-4935-A435-04E623AB038D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E4B13F1-CA3A-4935-A435-04E623AB038D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6606518-0396-495E-935C-9AAB92767127}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6606518-0396-495E-935C-9AAB92767127}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6606518-0396-495E-935C-9AAB92767127}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6606518-0396-495E-935C-9AAB92767127}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4F8FA98-9A2D-4DD1-9ADE-E02B0219E87D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4F8FA98-9A2D-4DD1-9ADE-E02B0219E87D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4F8FA98-9A2D-4DD1-9ADE-E02B0219E87D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4F8FA98-9A2D-4DD1-9ADE-E02B0219E87D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B11AECD-80F2-44FE-BEE0-5313C898CCEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B11AECD-80F2-44FE-BEE0-5313C898CCEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B11AECD-80F2-44FE-BEE0-5313C898CCEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B11AECD-80F2-44FE-BEE0-5313C898CCEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8176EBB8-EA14-491A-B5FC-74B56E197D9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8176EBB8-EA14-491A-B5FC-74B56E197D9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8176EBB8-EA14-491A-B5FC-74B56E197D9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8176EBB8-EA14-491A-B5FC-74B56E197D9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{617D6D6E-EF16-45BA-8391-E1886010034B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{617D6D6E-EF16-45BA-8391-E1886010034B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{617D6D6E-EF16-45BA-8391-E1886010034B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{617D6D6E-EF16-45BA-8391-E1886010034B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -321,6 +367,14 @@ Global
 		{EE90FD45-44F9-4BB2-B7E6-0EB139B5333A} = {01A87667-B95B-4A6F-A380-AEC6F3812B34}
 		{25DDDE81-B5F3-42F0-9FAF-B766F77E2E0B} = {01A87667-B95B-4A6F-A380-AEC6F3812B34}
 		{1337E52E-D470-4F0C-AC56-B4BA73974871} = {01A87667-B95B-4A6F-A380-AEC6F3812B34}
+		{394FB7D4-791F-46F5-AB70-5AFB7AD67CAA} = {65B2F528-8B96-437E-A6D8-D7AB6AD140E2}
+		{65B2F528-8B96-437E-A6D8-D7AB6AD140E2} = {C8A6EB56-D948-4E15-8388-1BBF90AF839C}
+		{2E4B13F1-CA3A-4935-A435-04E623AB038D} = {65B2F528-8B96-437E-A6D8-D7AB6AD140E2}
+		{A6606518-0396-495E-935C-9AAB92767127} = {65B2F528-8B96-437E-A6D8-D7AB6AD140E2}
+		{E4F8FA98-9A2D-4DD1-9ADE-E02B0219E87D} = {65B2F528-8B96-437E-A6D8-D7AB6AD140E2}
+		{0B11AECD-80F2-44FE-BEE0-5313C898CCEA} = {65B2F528-8B96-437E-A6D8-D7AB6AD140E2}
+		{8176EBB8-EA14-491A-B5FC-74B56E197D9E} = {65B2F528-8B96-437E-A6D8-D7AB6AD140E2}
+		{617D6D6E-EF16-45BA-8391-E1886010034B} = {01A87667-B95B-4A6F-A380-AEC6F3812B34}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F2BAE819-78D4-407A-9201-22473B2850B0}
