@@ -36,6 +36,15 @@ using Volo.Abp.UI.Navigation.Urls;
 using Volo.Abp.UI;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.VirtualFileSystem;
+using Volo.Abp.BackgroundJobs;
+using Volo.Abp.AspNetCore.MultiTenancy;
+using Volo.Abp.Timing;
+using Volo.Abp.AspNetCore.Mvc.Conventions;
+using Volo.Abp.AspNetCore.Mvc.AntiForgery;
+using Microsoft.AspNetCore.Http;
+using Volo.Abp.BackgroundWorkers;
+using Volo.Abp.MultiTenancy;
+using Volo.Abp.AspNetCore.Mvc.UI.Theming;
 
 namespace ABP.Hello.Web
 {
@@ -73,7 +82,41 @@ namespace ABP.Hello.Web
         {
             var hostingEnvironment = context.Services.GetHostingEnvironment();
             var configuration = context.Services.GetConfiguration();
+            Configure<AbpBackgroundJobOptions>(options =>
+            {
+                options.IsJobExecutionEnabled = false;
+            });
+            Configure<AbpAspNetCoreMultiTenancyOptions>(options =>
+            {
+                options.TenantKey = "xtenant";
+            });
 
+            Configure<AbpClockOptions>(options =>
+            {
+                options.Kind = DateTimeKind.Local;
+            });
+            Configure<AbpConventionalControllerOptions>(options =>
+            {
+                options.UseV3UrlStyle = true;
+            });
+
+            Configure<AbpAntiForgeryOptions>(options =>
+            {
+                options.TokenCookie.SecurePolicy = CookieSecurePolicy.Always;
+            });
+
+            Configure<AbpBackgroundWorkerOptions>(options =>
+            {
+                options.IsEnabled = false;
+            });
+            Configure<AbpTenantResolveOptions>(options =>
+            {
+                // options.AddDomainTenantResolver("{0}.abc.cn"); 
+            });
+            Configure<AbpThemingOptions>(theme =>
+            {
+
+            });
             ConfigureUrls(configuration);
             ConfigureBundles();
             ConfigureAuthentication(context, configuration);
