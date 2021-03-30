@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Logging;
 
 namespace ABP.Hello.Web
 {
@@ -7,6 +8,7 @@ namespace ABP.Hello.Web
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            IdentityModelEventSource.ShowPII = true;
             services.AddApplication<HelloWebModule>();
         }
 
