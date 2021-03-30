@@ -7870,9 +7870,9 @@ module.exports = g;
 
 /***/ }),
 /* 4 */
-/*!***************************************!*\
-  !*** D:/uni-apps/mix-mall/pages.json ***!
-  \***************************************/
+/*!************************************************!*\
+  !*** E:/abp/modules/hello/abp-mall/pages.json ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -7880,13 +7880,24 @@ module.exports = g;
 
 /***/ }),
 /* 5 */
-/*!*******************************************!*\
-  !*** D:/uni-apps/mix-mall/store/index.js ***!
-  \*******************************************/
+/*!****************************************************!*\
+  !*** E:/abp/modules/hello/abp-mall/store/index.js ***!
+  \****************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: D:\\uni-apps\\mix-mall\\store\\index.js: Unexpected token, expected \",\" (9:2)\n\n   7 |   modules: {\n   8 |     account\n>  9 | \t});\n     | \t ^\n  10 | export default store\n  11 | \n    at Object._raise (D:\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:746:17)\n    at Object.raiseWithData (D:\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:739:17)\n    at Object.raise (D:\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:733:17)\n    at Object.unexpected (D:\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:8807:16)\n    at Object.expect (D:\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:8793:28)\n    at Object.parseObj (D:\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:10439:14)\n    at Object.parseExprAtom (D:\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:10055:28)\n    at Object.parseExprAtom (D:\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:4638:20)\n    at Object.parseExprSubscripts (D:\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:9656:23)\n    at Object.parseMaybeUnary (D:\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:9636:21)\n    at Object.parseExprOps (D:\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:9506:23)\n    at Object.parseMaybeConditional (D:\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:9479:23)\n    at Object.parseMaybeAssign (D:\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:9434:21)\n    at Object.parseExprListItem (D:\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:10792:18)\n    at Object.parseExprList (D:\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:10766:22)\n    at Object.parseNewArguments (D:\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:10384:25)");
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 6));
+var _account = _interopRequireDefault(__webpack_require__(/*! ./account */ 7));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+_vue.default.use(_vuex.default);
+
+var store = new _vuex.default.Store({
+  modules: {
+    account: _account.default } });var _default =
+
+
+store;exports.default = _default;
 
 /***/ }),
 /* 6 */
@@ -9001,824 +9012,171 @@ var index = {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ 3)))
 
 /***/ }),
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */
-/*!**********************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
-  \**********************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-function normalizeComponent (
-  scriptExports,
-  render,
-  staticRenderFns,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier, /* server only */
-  shadowMode, /* vue-cli only */
-  components, // fixed by xxxxxx auto components
-  renderjs // fixed by xxxxxx renderjs
-) {
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // fixed by xxxxxx auto components
-  if (components) {
-    if (!options.components) {
-      options.components = {}
-    }
-    var hasOwn = Object.prototype.hasOwnProperty
-    for (var name in components) {
-      if (hasOwn.call(components, name) && !hasOwn.call(options.components, name)) {
-        options.components[name] = components[name]
-      }
-    }
-  }
-  // fixed by xxxxxx renderjs
-  if (renderjs) {
-    (renderjs.beforeCreate || (renderjs.beforeCreate = [])).unshift(function() {
-      this[renderjs.__module] = this
-    });
-    (options.mixins || (options.mixins = [])).push(renderjs)
-  }
-
-  // render functions
-  if (render) {
-    options.render = render
-    options.staticRenderFns = staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = 'data-v-' + scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = shadowMode
-      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
-      : injectStyles
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      var originalRender = options.render
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return originalRender(h, context)
-      }
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    }
-  }
-
-  return {
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ }),
-/* 13 */
-/*!************************************!*\
-  !*** D:/uni-apps/mix-mall/Json.js ***!
-  \************************************/
+/* 7 */
+/*!******************************************************!*\
+  !*** E:/abp/modules/hello/abp-mall/store/account.js ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var userInfo = {
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 8));var _account = __webpack_require__(/*! @/api/account */ 11);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+var state = {
+  token: '',
+  id: '',
   status: 1,
-  data: {
-    id: 1,
-    mobile: 18888888888,
-    nickname: '校长',
-    portrait: 'http://117.50.40.186/static/孙允珠/1/001.png' },
+  nickname: '',
+  avatar: '',
+  hasLogin: false,
+  userInfo: {
+    portrait: '123' },
+
+  introduction: '',
+  roles: [] };
+
+var getters = {
+  token: function token(state) {return state.token;},
+  avatar: function avatar(state) {return state.avatar;},
+  name: function name(state) {return state.name;},
+  roles: function roles(state) {return state.roles;},
+  introduction: function introduction(state) {return state.introduction;} };
+
+var mutations = {
+  login: function login(state, provider) {
+    state.hasLogin = true;
+    state.userInfo = provider;
+    uni.setStorage({ //缓存用户登陆状态
+      key: 'userInfo',
+      data: provider });
+
+    console.log(state.userInfo);
+  },
+  logout: function logout(state) {
+    state.hasLogin = false;
+    state.userInfo = {};
+    uni.removeStorage({
+      key: 'userInfo' });
+
+  },
+  setToken: function setToken(state, token) {
+    state.token = token;
+  },
+  SET_INTRODUCTION: function SET_INTRODUCTION(state, introduction) {
+    state.introduction = introduction;
+  },
+  setName: function setName(state, name) {
+    state.name = name;
+  },
+  SET_AVATAR: function SET_AVATAR(state, avatar) {
+    state.avatar = avatar;
+  },
+  SET_ROLES: function SET_ROLES(state, roles) {
+    state.roles = roles;
+  } };
+
+
+var actions = {
+
+  login: function login(state, provider) {
+    state.hasLogin = true;
+    state.userInfo = provider;
+    uni.setStorage({ //缓存用户登陆状态
+      key: 'userInfo',
+      data: provider });
+
+    console.log(state.userInfo);
+  },
+
+  getMyProfile: function getMyProfile(_ref) {var commit = _ref.commit,state = _ref.state;
+    return new Promise(function (resolve, reject) {
+      (0, _account.getMyProfile)().then(function (response) {var
+        data = response.data;
+        var users = {
+          'admin-token': {
+            roles: ['admin'],
+            introduction: 'I am a super administrator',
+            avatar: 'https://w.wallhaven.cc/full/1j/wallhaven-1j1oqg.jpg',
+            name: 'Super Admin' },
+
+          'editor-token': {
+            roles: ['editor'],
+            introduction: 'I am an editor',
+            avatar: 'https://w.wallhaven.cc/full/1j/wallhaven-1j1oqg.jpg',
+            name: 'Normal Editor' } };var _users$adminToken =
+
+
+
+        users['admin-token'],roles = _users$adminToken.roles,name = _users$adminToken.name,avatar = _users$adminToken.avatar,introduction = _users$adminToken.introduction;
+
+        // roles must be a non-empty array
+        if (!roles || roles.length <= 0) {
+          reject('getInfo: roles must be a non-null array!');
+        }
+
+        commit('SET_ROLES', roles);
+        commit('SET_AVATAR', avatar);
+        commit('SET_INTRODUCTION', introduction);
+        resolve(users['admin-token']);
+      }).catch(function (error) {
+        reject(error);
+      });
+    });
+  },
+
+  endSession: function endSession(_ref2) {var commit = _ref2.commit;
+    return new Promise(function (resolve) {
+      (0, _account.endSession)().then(function () {
+        commit('removeToken', '');
+      });
+      resolve();
+    });
+  },
 
-  msg: '提示' };
+  // dynamically modify permissions
+  changeRoles: function changeRoles(_ref3, role) {var commit = _ref3.commit,dispatch = _ref3.dispatch;
+    return new Promise( /*#__PURE__*/function () {var _ref4 = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(resolve) {var token, _yield$dispatch, roles, accessRoutes;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+                token = role + '-token';
+                commit('setToken', token);
+                setToken(token);_context.next = 5;return (
 
-/* 首页轮播图 */
-var carouselList = [{
-  src: "http://117.50.40.186/static/1.jpg",
-  background: "rgb(203, 87, 60)" },
+                  dispatch('getMyProfile'));case 5:_yield$dispatch = _context.sent;roles = _yield$dispatch.roles;
 
-{
-  src: "http://117.50.40.186/static/孙允珠/1/001.png",
-  background: "rgb(205, 215, 218)" },
-
-{
-  src: "http://117.50.40.186/static/孙允珠/1/002.png",
-  background: "rgb(183, 73, 69)" }];
-
-
-/* 商品列表 */
-var goodsList = [{
-  image: "http://117.50.40.186/static/孙允珠/1/003.png",
-  image2: "http://117.50.40.186/static/孙允珠/1/004.png",
-  image3: "http://117.50.40.186/static/孙允珠/1/005.png",
-  title: "古黛妃 短袖t恤女夏装2019新款韩版宽松",
-  price: 179,
-  sales: 61 },
-
-{
-  image: "http://117.50.40.186/static/孙允珠/1/006.png",
-  image2: "http://117.50.40.186/static/孙允珠/1/007.png",
-  image3: "http://117.50.40.186/static/孙允珠/1/008.png",
-  title: "潘歌针织连衣裙",
-  price: 78,
-  sales: 16 },
-
-{
-  image: "http://117.50.40.186/static/孙允珠/3/005.png",
-  image2: "http://117.50.40.186/static/孙允珠/3/005.png",
-  image3: "http://117.50.40.186/static/孙允珠/3/005.png",
-  title: "巧谷2019春夏季新品新款女装",
-  price: 108.8,
-  sales: 5 },
-{
-  image: "http://117.50.40.186/static/孙允珠/1/009.png",
-  image2: "http://117.50.40.186/static/孙允珠/1/010.png",
-  image3: "http://117.50.40.186/static/孙允珠/1/011.png",
-  title: "私萱连衣裙",
-  price: 265,
-  sales: 88 },
-{
-  image: "http://117.50.40.186/static/孙允珠/1/012.png",
-  image2: "http://117.50.40.186/static/孙允珠/1/013.png",
-  image3: "http://117.50.40.186/static/孙允珠/1/014.png",
-  title: "娇诗茹-原宿风学生潮韩版春夏短",
-  price: 422,
-  sales: 137 },
-{
-  image: "http://117.50.40.186/static/孙允珠/2/001.png",
-  image2: "http://117.50.40.186/static/孙允珠/2/002.png",
-  image3: "http://117.50.40.186/static/孙允珠/2/003.png",
-  title: "古黛妃 短袖t恤女夏装2019新款韩版宽松",
-  price: 179,
-  sales: 95 }];
-
-
-
-/* 购物车 */
-var cartList = [{
-  id: 1,
-  image: 'https://www.tallper.net/api/app/image/6',
-  attr_val: '你好，校长',
-  stock: 15,
-  title: 'OVBE 长袖风衣',
-  price: 278.00,
-  number: 1 },
-
-{
-  id: 3,
-  image: 'http://117.50.40.186/static/孙允珠/2/005.png',
-  attr_val: '激光导航 扫拖一体',
-  stock: 3,
-  title: '科沃斯 Ecovacs 扫地机器人',
-  price: 1348.00,
-  number: 5 },
-
-{
-  id: 4,
-  image: 'http://117.50.40.186/static/孙允珠/2/006.png',
-  attr_val: 'XL',
-  stock: 55,
-  title: '朵绒菲小西装',
-  price: 175.88,
-  number: 1 },
-
-{
-  id: 5,
-  image: 'http://117.50.40.186/static/孙允珠/1/008.png',
-  attr_val: '520 #粉红色',
-  stock: 15,
-  title: '迪奥（Dior）烈艳唇膏',
-  price: 1089.00,
-  number: 1 },
-
-{
-  id: 6,
-  image: 'http://117.50.40.186/static/孙允珠/2/006.png',
-  attr_val: '樱花味润手霜 30ml',
-  stock: 15,
-  title: "欧舒丹（L'OCCITANE）乳木果",
-  price: 128,
-  number: 1 },
-
-{
-  id: 7,
-  image: 'http://117.50.40.186/static/孙允珠/1/008.png',
-  attr_val: '特级 12个',
-  stock: 7,
-  title: '新疆阿克苏苹果 特级',
-  price: 58.8,
-  number: 10 },
-
-{
-  id: 8,
-  image: 'http://117.50.40.186/static/孙允珠/2/009.png',
-  attr_val: '激光导航 扫拖一体',
-  stock: 15,
-  title: '科沃斯 Ecovacs 扫地机器人',
-  price: 1348.00,
-  number: 1 },
-
-{
-  id: 9,
-  image: 'http://117.50.40.186/static/孙允珠/2/010.png',
-  attr_val: 'XL',
-  stock: 55,
-  title: '朵绒菲小西装',
-  price: 175.88,
-  number: 1 },
-
-{
-  id: 10,
-  image: 'http://117.50.40.186/static/孙允珠/1/008.png',
-  attr_val: '520 #粉红色',
-  stock: 15,
-  title: '迪奥（Dior）烈艳唇膏',
-  price: 1089.00,
-  number: 1 },
-
-{
-  id: 11,
-  image: 'http://117.50.40.186/static/孙允珠/2/011.png',
-  attr_val: '樱花味润手霜 30ml',
-  stock: 15,
-  title: "欧舒丹（L'OCCITANE）乳木果",
-  price: 128,
-  number: 1 },
-
-{
-  id: 12,
-  image: 'http://117.50.40.186/static/孙允珠/1/008.png',
-  attr_val: '特级 12个',
-  stock: 7,
-  title: '新疆阿克苏苹果 特级',
-  price: 58.8,
-  number: 10 },
-
-{
-  id: 13,
-  image: 'http://117.50.40.186/static/孙允珠/1/008.png',
-  attr_val: '春装款/m',
-  stock: 15,
-  title: '女装2019春秋新款',
-  price: 420.00,
-  number: 1 }];
-
-
-//详情展示页面
-var detailData = {
-  title: '纯种金毛幼犬活体有血统证书',
-  title2: '拆家小能手 你值得拥有',
-  favorite: true,
-  imgList: [{
-    src: 'http://117.50.40.186/static/孙允珠/2/016.png' },
-
-  {
-    src: 'http://117.50.40.186/static/孙允珠/2/012.png' },
-
-  {
-    src: 'http://117.50.40.186/static/孙允珠/2/013.png' },
-
-  {
-    src: 'http://117.50.40.186/static/孙允珠/2/014.png' }],
-
-
-  episodeList: [
-  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
-
-  guessList: [{
-    src: 'http://117.50.40.186/static/孙允珠/2/020.png',
-    title: '猫眼指甲油',
-    title2: '独树一帜的免照灯猫眼指甲' },
-
-  {
-    src: 'http://117.50.40.186/static/孙允珠/3/005.png',
-    title: '创意屋',
-    title2: '创意屋形上下双层高低床' },
-
-  {
-    src: 'http://117.50.40.186/static/孙允珠/3/001.png',
-    title: 'MissCandy 指甲油',
-    title2: '十分适合喜欢素净的妹纸，尽显淡雅的气质' },
-
-  {
-    src: 'http://117.50.40.186/static/孙允珠/3/002.png',
-    title: 'RMK 2017星空海蓝唇釉',
-    title2: '唇釉质地，上唇后很滋润。少女也会心动的蓝色，透明液体形状。' }],
-
-
-  evaList: [{
-    src: 'http://117.50.40.186/static/孙允珠/3/007.png',
-    nickname: 'Ranth Allngal',
-    time: '09-20 12:54',
-    zan: '54',
-    content: '评论不要太苛刻，不管什么产品都会有瑕疵，' },
-
-  {
-    src: 'http://117.50.40.186/static/孙允珠/3/008.png',
-    nickname: 'Ranth Allngal',
-    time: '09-20 12:54',
-    zan: '54',
-    content: '楼上说的好有道理。' }] };
-
-
-
-var shareList = [{
-  type: 1,
-  icon: '/static/temp/share_wechat.png',
-  text: '微信好友' },
-
-{
-  type: 2,
-  icon: '/static/temp/share_moment.png',
-  text: '朋友圈' },
-
-{
-  type: 3,
-  icon: '/static/temp/share_qq.png',
-  text: 'QQ好友' },
-
-{
-  type: 4,
-  icon: '/static/temp/share_qqzone.png',
-  text: 'QQ空间' }];
-
-
-var lazyLoadList = [{
-  src: 'http://117.50.40.186/static/孙允珠/3/005.png' },
-
-{
-  src: 'http://117.50.40.186/static/孙允珠/3/005.png' },
-
-{
-  src: 'http://117.50.40.186/static/孙允珠/2/005.png' },
-
-{
-  src: 'http://117.50.40.186/static/孙允珠/3/005.png' },
-
-{
-  src: 'http://117.50.40.186/static/孙允珠/3/005.png' },
-
-{
-  src: 'http://117.50.40.186/static/孙允珠/3/005.png' },
-
-{
-  src: 'http://117.50.40.186/static/孙允珠/3/005.png' },
-
-{
-  src: 'http://117.50.40.186/static/孙允珠/3/005.png' },
-
-{
-  src: 'http://117.50.40.186/static/孙允珠/3/005.png' },
-
-{
-  src: 'http://117.50.40.186/static/孙允珠/3/005.png' },
-
-{
-  src: 'http://117.50.40.186/static/孙允珠/3/005.png' },
-
-{
-  src: 'http://117.50.40.186/static/孙允珠/3/005.png' },
-
-{
-  src: 'http://117.50.40.186/static/孙允珠/4/005.png' },
-
-{
-  src: 'http://117.50.40.186/static/孙允珠/4/005.png' },
-
-{
-  src: 'http://117.50.40.186/static/孙允珠/4/005.png' },
-
-{
-  src: 'http://117.50.40.186/static/孙允珠/4/005.png' },
-
-{
-  src: 'http://117.50.40.186/static/孙允珠/5/005.png' },
-
-{
-  src: 'http://117.50.40.186/static/孙允珠/3/005.png' },
-
-{
-  src: 'http://117.50.40.186/static/孙允珠/3/005.png' },
-
-{
-  src: 'http://117.50.40.186/static/孙允珠/3/005.png' }];
-
-
-
-var orderList = [{
-  time: '2019-04-06 11:37',
-  state: 1,
-  goodsList: [{
-    image: 'http://117.50.40.186/static/孙允珠/1/008.png' },
-
-  {
-    image: 'http://117.50.40.186/static/孙允珠/3/005.png' },
-
-  {
-    image: 'http://117.50.40.186/static/孙允珠/3/005.png' },
-
-  {
-    image: 'http://117.50.40.186/static/孙允珠/3/005.png' },
-
-  {
-    image: 'http://117.50.40.186/static/孙允珠/3/005.png' },
+                resetRouter();
 
-  {
-    image: 'http://117.50.40.186/static/孙允珠/3/005.png' },
+                // generate accessible routes map based on roles
+                _context.next = 10;return dispatch('permission/generateRoutes', roles, { root: true });case 10:accessRoutes = _context.sent;
 
-  {
-    image: 'http://117.50.40.186/static/孙允珠/3/005.png' }] },
+                // dynamically add accessible routes
+                router.addRoutes(accessRoutes);
 
+                // reset visited views and cached views
+                dispatch('tagsView/delAllViews', null, { root: true });
 
-
-{
-  time: '2019-04-06 11:37',
-  state: 9,
-  goodsList: [{
-    title: '古黛妃 短袖t恤女 春夏装2019新款韩版宽松',
-    price: 179.5,
-    image: 'http://117.50.40.186/static/孙允珠/3/005.png',
-    number: 1,
-    attr: '珊瑚粉 M' }] },
-
-
-{
-  time: '2019-04-06 11:37',
-  state: 1,
-  goodsList: [{
-    image: 'http://117.50.40.186/static/孙允珠/3/005.png' },
-
-  {
-    image: 'http://117.50.40.186/static/孙允珠/3/005.png' },
-
-  {
-    image: 'http://117.50.40.186/static/孙允珠/3/005.png' }] },
-
-
-
-{
-  time: '2019-04-06 11:37',
-  state: 1,
-  goodsList: [{
-    title: '回力女鞋高帮帆布鞋女学生韩版鞋子女2019潮鞋女鞋新款春季板鞋女',
-    price: 69,
-    image: 'http://117.50.40.186/static/孙允珠/3/005.png',
-    number: 1,
-    attr: '白色-高帮 39' }] },
-
-
-{
-  time: '2019-04-06 11:37',
-  state: 1,
-  goodsList: [{
-    image: 'http://117.50.40.186/static/孙允珠/3/005.png' },
-
-  {
-    image: 'http://117.50.40.186/static/孙允珠/3/005.png' }] },
-
-
-
-{
-  time: '2019-04-06 11:37',
-  state: 1,
-  goodsList: [{
-    image: 'http://117.50.40.186/static/孙允珠/3/005.png' },
-
-  {
-    image: 'http://117.50.40.186/static/孙允珠/3/005.png' },
-
-  {
-    image: 'http://117.50.40.186/static/孙允珠/3/005.png' }] }];
-
-
-
-
-
-var cateList = [{
-  id: 1,
-  name: '手机数码' },
-
-{
-  id: 2,
-  name: '礼品鲜花' },
-
-{
-  id: 3,
-  name: '男装女装' },
-
-{
-  id: 4,
-  name: '母婴用品' },
-
-{
-  id: 5,
-  pid: 1,
-  name: '手机通讯' },
-
-{
-  id: 6,
-  pid: 1,
-  name: '运营商' },
-
-{
-  id: 8,
-  pid: 5,
-  name: '全面屏手机',
-  picture: '/static/temp/cate2.jpg' },
-
-{
-  id: 9,
-  pid: 5,
-  name: '游戏手机',
-  picture: '/static/temp/cate3.jpg' },
-
-{
-  id: 10,
-  pid: 5,
-  name: '老人机',
-  picture: '/static/temp/cate1.jpg' },
-
-{
-  id: 11,
-  pid: 5,
-  name: '拍照手机',
-  picture: '/static/temp/cate4.jpg' },
-
-{
-  id: 12,
-  pid: 5,
-  name: '女性手机',
-  picture: '/static/temp/cate5.jpg' },
-
-{
-  id: 14,
-  pid: 6,
-  name: '合约机',
-  picture: '/static/temp/cate1.jpg' },
-
-{
-  id: 15,
-  pid: 6,
-  name: '选好卡',
-  picture: '/static/temp/cate4.jpg' },
-
-{
-  id: 16,
-  pid: 6,
-  name: '办套餐',
-  picture: '/static/temp/cate5.jpg' },
-
-{
-  id: 17,
-  pid: 2,
-  name: '礼品' },
-
-{
-  id: 18,
-  pid: 2,
-  name: '鲜花' },
-
-{
-  id: 19,
-  pid: 17,
-  name: '公益摆件',
-  picture: '/static/temp/cate7.jpg' },
-
-{
-  id: 20,
-  pid: 17,
-  name: '创意礼品',
-  picture: '/static/temp/cate8.jpg' },
-
-{
-  id: 21,
-  pid: 18,
-  name: '鲜花',
-  picture: '/static/temp/cate9.jpg' },
-
-{
-  id: 22,
-  pid: 18,
-  name: '每周一花',
-  picture: '/static/temp/cate10.jpg' },
-
-{
-  id: 23,
-  pid: 18,
-  name: '卡通花束',
-  picture: '/static/temp/cate11.jpg' },
-
-{
-  id: 24,
-  pid: 18,
-  name: '永生花',
-  picture: '/static/temp/cate12.jpg' },
-
-{
-  id: 25,
-  pid: 3,
-  name: '男装' },
-
-{
-  id: 26,
-  pid: 3,
-  name: '女装' },
-
-{
-  id: 27,
-  pid: 25,
-  name: '男士T恤',
-  picture: '/static/temp/cate13.jpg' },
-
-{
-  id: 28,
-  pid: 25,
-  name: '男士外套',
-  picture: '/static/temp/cate14.jpg' },
-
-{
-  id: 29,
-  pid: 26,
-  name: '裙装',
-  picture: '/static/temp/cate15.jpg' },
-
-{
-  id: 30,
-  pid: 26,
-  name: 'T恤',
-  picture: '/static/temp/cate16.jpg' },
-
-{
-  id: 31,
-  pid: 26,
-  name: '上装',
-  picture: '/static/temp/cate15.jpg' },
-
-{
-  id: 32,
-  pid: 26,
-  name: '下装',
-  picture: '/static/temp/cate16.jpg' },
-
-{
-  id: 33,
-  pid: 4,
-  name: '奶粉' },
-
-{
-  id: 34,
-  pid: 4,
-  name: '营养辅食' },
-
-{
-  id: 35,
-  pid: 4,
-  name: '童装' },
-
-{
-  id: 39,
-  pid: 4,
-  name: '喂养用品' },
-
-{
-  id: 36,
-  pid: 33,
-  name: '有机奶粉',
-  picture: '/static/temp/cate17.jpg' },
-
-{
-  id: 37,
-  pid: 34,
-  name: '果泥/果汁',
-  picture: '/static/temp/cate18.jpg' },
-
-{
-  id: 39,
-  pid: 34,
-  name: '面条/粥',
-  picture: '/static/temp/cate20.jpg' },
-
-{
-  id: 42,
-  pid: 35,
-  name: '婴童衣橱',
-  picture: '/static/temp/cate19.jpg' },
-
-{
-  id: 43,
-  pid: 39,
-  name: '吸奶器',
-  picture: '/static/temp/cate21.jpg' },
-
-{
-  id: 44,
-  pid: 39,
-  name: '儿童餐具',
-  picture: '/static/temp/cate22.jpg' },
-
-{
-  id: 45,
-  pid: 39,
-  name: '牙胶安抚',
-  picture: '/static/temp/cate23.jpg' },
-
-{
-  id: 46,
-  pid: 39,
-  name: '围兜',
-  picture: '/static/temp/cate24.jpg' }];var _default =
+                resolve();case 14:case "end":return _context.stop();}}}, _callee);}));return function (_x) {return _ref4.apply(this, arguments);};}());
 
+  } };var _default =
 
 
 {
-  carouselList: carouselList,
-  cartList: cartList,
-  detailData: detailData,
-  lazyLoadList: lazyLoadList,
-  userInfo: userInfo,
-  shareList: shareList,
-  goodsList: goodsList,
-  orderList: orderList,
-  cateList: cateList };exports.default = _default;
+  namespaced: true,
+  state: state,
+  getters: getters,
+  mutations: mutations,
+  actions: actions };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 14 */,
-/* 15 */,
-/* 16 */,
-/* 17 */,
-/* 18 */,
-/* 19 */,
-/* 20 */
+/* 8 */
 /*!**********************************************************!*\
   !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
   \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! regenerator-runtime */ 21);
+module.exports = __webpack_require__(/*! regenerator-runtime */ 9);
 
 /***/ }),
-/* 21 */
+/* 9 */
 /*!************************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
   \************************************************************/
@@ -9849,7 +9207,7 @@ var oldRuntime = hadRuntime && g.regeneratorRuntime;
 // Force reevalutation of runtime.js.
 g.regeneratorRuntime = undefined;
 
-module.exports = __webpack_require__(/*! ./runtime */ 22);
+module.exports = __webpack_require__(/*! ./runtime */ 10);
 
 if (hadRuntime) {
   // Restore the original runtime.
@@ -9865,7 +9223,7 @@ if (hadRuntime) {
 
 
 /***/ }),
-/* 22 */
+/* 10 */
 /*!*****************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime.js ***!
   \*****************************************************/
@@ -10594,6 +9952,1534 @@ if (hadRuntime) {
   })() || Function("return this")()
 );
 
+
+/***/ }),
+/* 11 */
+/*!****************************************************!*\
+  !*** E:/abp/modules/hello/abp-mall/api/account.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.login = login;exports.getMyProfile = getMyProfile;exports.getUsers = getUsers;exports.endSession = endSession;exports.checkSession = checkSession;exports.introspect = introspect;var _qs = _interopRequireDefault(__webpack_require__(/*! qs */ 12));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+function login(data) {
+  var formData = _qs.default.stringify(data);
+  return uni.request.post('http://117.50.40.186:6060/connect/token', formData);
+}
+function getMyProfile() {
+  return uni.request({
+    url: '/api/abp/api-definition',
+    method: 'GET' });
+
+}
+function getUsers() {
+  return uni.request({
+    url: '/api/identity/users',
+    method: 'GET' });
+
+}
+function endSession() {
+  return uni.request({
+    url: '/connect/endsession',
+    method: 'POST' });
+
+}
+function checkSession() {
+  return uni.request({
+    url: '/connect/checksession',
+    method: 'POST' });
+
+}
+function introspect() {
+  return uni.request({
+    url: '/connect/introspect',
+    method: 'POST' });
+
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 12 */
+/*!**************************************!*\
+  !*** ./node_modules/qs/lib/index.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var stringify = __webpack_require__(/*! ./stringify */ 13);
+var parse = __webpack_require__(/*! ./parse */ 16);
+var formats = __webpack_require__(/*! ./formats */ 15);
+
+module.exports = {
+    formats: formats,
+    parse: parse,
+    stringify: stringify
+};
+
+
+/***/ }),
+/* 13 */
+/*!******************************************!*\
+  !*** ./node_modules/qs/lib/stringify.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./utils */ 14);
+var formats = __webpack_require__(/*! ./formats */ 15);
+
+var arrayPrefixGenerators = {
+    brackets: function brackets(prefix) { // eslint-disable-line func-name-matching
+        return prefix + '[]';
+    },
+    indices: function indices(prefix, key) { // eslint-disable-line func-name-matching
+        return prefix + '[' + key + ']';
+    },
+    repeat: function repeat(prefix) { // eslint-disable-line func-name-matching
+        return prefix;
+    }
+};
+
+var toISO = Date.prototype.toISOString;
+
+var defaults = {
+    delimiter: '&',
+    encode: true,
+    encoder: utils.encode,
+    encodeValuesOnly: false,
+    serializeDate: function serializeDate(date) { // eslint-disable-line func-name-matching
+        return toISO.call(date);
+    },
+    skipNulls: false,
+    strictNullHandling: false
+};
+
+var stringify = function stringify( // eslint-disable-line func-name-matching
+    object,
+    prefix,
+    generateArrayPrefix,
+    strictNullHandling,
+    skipNulls,
+    encoder,
+    filter,
+    sort,
+    allowDots,
+    serializeDate,
+    formatter,
+    encodeValuesOnly
+) {
+    var obj = object;
+    if (typeof filter === 'function') {
+        obj = filter(prefix, obj);
+    } else if (obj instanceof Date) {
+        obj = serializeDate(obj);
+    } else if (obj === null) {
+        if (strictNullHandling) {
+            return encoder && !encodeValuesOnly ? encoder(prefix, defaults.encoder) : prefix;
+        }
+
+        obj = '';
+    }
+
+    if (typeof obj === 'string' || typeof obj === 'number' || typeof obj === 'boolean' || utils.isBuffer(obj)) {
+        if (encoder) {
+            var keyValue = encodeValuesOnly ? prefix : encoder(prefix, defaults.encoder);
+            return [formatter(keyValue) + '=' + formatter(encoder(obj, defaults.encoder))];
+        }
+        return [formatter(prefix) + '=' + formatter(String(obj))];
+    }
+
+    var values = [];
+
+    if (typeof obj === 'undefined') {
+        return values;
+    }
+
+    var objKeys;
+    if (Array.isArray(filter)) {
+        objKeys = filter;
+    } else {
+        var keys = Object.keys(obj);
+        objKeys = sort ? keys.sort(sort) : keys;
+    }
+
+    for (var i = 0; i < objKeys.length; ++i) {
+        var key = objKeys[i];
+
+        if (skipNulls && obj[key] === null) {
+            continue;
+        }
+
+        if (Array.isArray(obj)) {
+            values = values.concat(stringify(
+                obj[key],
+                generateArrayPrefix(prefix, key),
+                generateArrayPrefix,
+                strictNullHandling,
+                skipNulls,
+                encoder,
+                filter,
+                sort,
+                allowDots,
+                serializeDate,
+                formatter,
+                encodeValuesOnly
+            ));
+        } else {
+            values = values.concat(stringify(
+                obj[key],
+                prefix + (allowDots ? '.' + key : '[' + key + ']'),
+                generateArrayPrefix,
+                strictNullHandling,
+                skipNulls,
+                encoder,
+                filter,
+                sort,
+                allowDots,
+                serializeDate,
+                formatter,
+                encodeValuesOnly
+            ));
+        }
+    }
+
+    return values;
+};
+
+module.exports = function (object, opts) {
+    var obj = object;
+    var options = opts ? utils.assign({}, opts) : {};
+
+    if (options.encoder !== null && options.encoder !== undefined && typeof options.encoder !== 'function') {
+        throw new TypeError('Encoder has to be a function.');
+    }
+
+    var delimiter = typeof options.delimiter === 'undefined' ? defaults.delimiter : options.delimiter;
+    var strictNullHandling = typeof options.strictNullHandling === 'boolean' ? options.strictNullHandling : defaults.strictNullHandling;
+    var skipNulls = typeof options.skipNulls === 'boolean' ? options.skipNulls : defaults.skipNulls;
+    var encode = typeof options.encode === 'boolean' ? options.encode : defaults.encode;
+    var encoder = typeof options.encoder === 'function' ? options.encoder : defaults.encoder;
+    var sort = typeof options.sort === 'function' ? options.sort : null;
+    var allowDots = typeof options.allowDots === 'undefined' ? false : options.allowDots;
+    var serializeDate = typeof options.serializeDate === 'function' ? options.serializeDate : defaults.serializeDate;
+    var encodeValuesOnly = typeof options.encodeValuesOnly === 'boolean' ? options.encodeValuesOnly : defaults.encodeValuesOnly;
+    if (typeof options.format === 'undefined') {
+        options.format = formats['default'];
+    } else if (!Object.prototype.hasOwnProperty.call(formats.formatters, options.format)) {
+        throw new TypeError('Unknown format option provided.');
+    }
+    var formatter = formats.formatters[options.format];
+    var objKeys;
+    var filter;
+
+    if (typeof options.filter === 'function') {
+        filter = options.filter;
+        obj = filter('', obj);
+    } else if (Array.isArray(options.filter)) {
+        filter = options.filter;
+        objKeys = filter;
+    }
+
+    var keys = [];
+
+    if (typeof obj !== 'object' || obj === null) {
+        return '';
+    }
+
+    var arrayFormat;
+    if (options.arrayFormat in arrayPrefixGenerators) {
+        arrayFormat = options.arrayFormat;
+    } else if ('indices' in options) {
+        arrayFormat = options.indices ? 'indices' : 'repeat';
+    } else {
+        arrayFormat = 'indices';
+    }
+
+    var generateArrayPrefix = arrayPrefixGenerators[arrayFormat];
+
+    if (!objKeys) {
+        objKeys = Object.keys(obj);
+    }
+
+    if (sort) {
+        objKeys.sort(sort);
+    }
+
+    for (var i = 0; i < objKeys.length; ++i) {
+        var key = objKeys[i];
+
+        if (skipNulls && obj[key] === null) {
+            continue;
+        }
+
+        keys = keys.concat(stringify(
+            obj[key],
+            key,
+            generateArrayPrefix,
+            strictNullHandling,
+            skipNulls,
+            encode ? encoder : null,
+            filter,
+            sort,
+            allowDots,
+            serializeDate,
+            formatter,
+            encodeValuesOnly
+        ));
+    }
+
+    var joined = keys.join(delimiter);
+    var prefix = options.addQueryPrefix === true ? '?' : '';
+
+    return joined.length > 0 ? prefix + joined : '';
+};
+
+
+/***/ }),
+/* 14 */
+/*!**************************************!*\
+  !*** ./node_modules/qs/lib/utils.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var has = Object.prototype.hasOwnProperty;
+
+var hexTable = (function () {
+    var array = [];
+    for (var i = 0; i < 256; ++i) {
+        array.push('%' + ((i < 16 ? '0' : '') + i.toString(16)).toUpperCase());
+    }
+
+    return array;
+}());
+
+var compactQueue = function compactQueue(queue) {
+    var obj;
+
+    while (queue.length) {
+        var item = queue.pop();
+        obj = item.obj[item.prop];
+
+        if (Array.isArray(obj)) {
+            var compacted = [];
+
+            for (var j = 0; j < obj.length; ++j) {
+                if (typeof obj[j] !== 'undefined') {
+                    compacted.push(obj[j]);
+                }
+            }
+
+            item.obj[item.prop] = compacted;
+        }
+    }
+
+    return obj;
+};
+
+var arrayToObject = function arrayToObject(source, options) {
+    var obj = options && options.plainObjects ? Object.create(null) : {};
+    for (var i = 0; i < source.length; ++i) {
+        if (typeof source[i] !== 'undefined') {
+            obj[i] = source[i];
+        }
+    }
+
+    return obj;
+};
+
+var merge = function merge(target, source, options) {
+    if (!source) {
+        return target;
+    }
+
+    if (typeof source !== 'object') {
+        if (Array.isArray(target)) {
+            target.push(source);
+        } else if (typeof target === 'object') {
+            if (options.plainObjects || options.allowPrototypes || !has.call(Object.prototype, source)) {
+                target[source] = true;
+            }
+        } else {
+            return [target, source];
+        }
+
+        return target;
+    }
+
+    if (typeof target !== 'object') {
+        return [target].concat(source);
+    }
+
+    var mergeTarget = target;
+    if (Array.isArray(target) && !Array.isArray(source)) {
+        mergeTarget = arrayToObject(target, options);
+    }
+
+    if (Array.isArray(target) && Array.isArray(source)) {
+        source.forEach(function (item, i) {
+            if (has.call(target, i)) {
+                if (target[i] && typeof target[i] === 'object') {
+                    target[i] = merge(target[i], item, options);
+                } else {
+                    target.push(item);
+                }
+            } else {
+                target[i] = item;
+            }
+        });
+        return target;
+    }
+
+    return Object.keys(source).reduce(function (acc, key) {
+        var value = source[key];
+
+        if (has.call(acc, key)) {
+            acc[key] = merge(acc[key], value, options);
+        } else {
+            acc[key] = value;
+        }
+        return acc;
+    }, mergeTarget);
+};
+
+var assign = function assignSingleSource(target, source) {
+    return Object.keys(source).reduce(function (acc, key) {
+        acc[key] = source[key];
+        return acc;
+    }, target);
+};
+
+var decode = function (str) {
+    try {
+        return decodeURIComponent(str.replace(/\+/g, ' '));
+    } catch (e) {
+        return str;
+    }
+};
+
+var encode = function encode(str) {
+    // This code was originally written by Brian White (mscdex) for the io.js core querystring library.
+    // It has been adapted here for stricter adherence to RFC 3986
+    if (str.length === 0) {
+        return str;
+    }
+
+    var string = typeof str === 'string' ? str : String(str);
+
+    var out = '';
+    for (var i = 0; i < string.length; ++i) {
+        var c = string.charCodeAt(i);
+
+        if (
+            c === 0x2D // -
+            || c === 0x2E // .
+            || c === 0x5F // _
+            || c === 0x7E // ~
+            || (c >= 0x30 && c <= 0x39) // 0-9
+            || (c >= 0x41 && c <= 0x5A) // a-z
+            || (c >= 0x61 && c <= 0x7A) // A-Z
+        ) {
+            out += string.charAt(i);
+            continue;
+        }
+
+        if (c < 0x80) {
+            out = out + hexTable[c];
+            continue;
+        }
+
+        if (c < 0x800) {
+            out = out + (hexTable[0xC0 | (c >> 6)] + hexTable[0x80 | (c & 0x3F)]);
+            continue;
+        }
+
+        if (c < 0xD800 || c >= 0xE000) {
+            out = out + (hexTable[0xE0 | (c >> 12)] + hexTable[0x80 | ((c >> 6) & 0x3F)] + hexTable[0x80 | (c & 0x3F)]);
+            continue;
+        }
+
+        i += 1;
+        c = 0x10000 + (((c & 0x3FF) << 10) | (string.charCodeAt(i) & 0x3FF));
+        out += hexTable[0xF0 | (c >> 18)]
+            + hexTable[0x80 | ((c >> 12) & 0x3F)]
+            + hexTable[0x80 | ((c >> 6) & 0x3F)]
+            + hexTable[0x80 | (c & 0x3F)];
+    }
+
+    return out;
+};
+
+var compact = function compact(value) {
+    var queue = [{ obj: { o: value }, prop: 'o' }];
+    var refs = [];
+
+    for (var i = 0; i < queue.length; ++i) {
+        var item = queue[i];
+        var obj = item.obj[item.prop];
+
+        var keys = Object.keys(obj);
+        for (var j = 0; j < keys.length; ++j) {
+            var key = keys[j];
+            var val = obj[key];
+            if (typeof val === 'object' && val !== null && refs.indexOf(val) === -1) {
+                queue.push({ obj: obj, prop: key });
+                refs.push(val);
+            }
+        }
+    }
+
+    return compactQueue(queue);
+};
+
+var isRegExp = function isRegExp(obj) {
+    return Object.prototype.toString.call(obj) === '[object RegExp]';
+};
+
+var isBuffer = function isBuffer(obj) {
+    if (obj === null || typeof obj === 'undefined') {
+        return false;
+    }
+
+    return !!(obj.constructor && obj.constructor.isBuffer && obj.constructor.isBuffer(obj));
+};
+
+module.exports = {
+    arrayToObject: arrayToObject,
+    assign: assign,
+    compact: compact,
+    decode: decode,
+    encode: encode,
+    isBuffer: isBuffer,
+    isRegExp: isRegExp,
+    merge: merge
+};
+
+
+/***/ }),
+/* 15 */
+/*!****************************************!*\
+  !*** ./node_modules/qs/lib/formats.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var replace = String.prototype.replace;
+var percentTwenties = /%20/g;
+
+module.exports = {
+    'default': 'RFC3986',
+    formatters: {
+        RFC1738: function (value) {
+            return replace.call(value, percentTwenties, '+');
+        },
+        RFC3986: function (value) {
+            return value;
+        }
+    },
+    RFC1738: 'RFC1738',
+    RFC3986: 'RFC3986'
+};
+
+
+/***/ }),
+/* 16 */
+/*!**************************************!*\
+  !*** ./node_modules/qs/lib/parse.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./utils */ 14);
+
+var has = Object.prototype.hasOwnProperty;
+
+var defaults = {
+    allowDots: false,
+    allowPrototypes: false,
+    arrayLimit: 20,
+    decoder: utils.decode,
+    delimiter: '&',
+    depth: 5,
+    parameterLimit: 1000,
+    plainObjects: false,
+    strictNullHandling: false
+};
+
+var parseValues = function parseQueryStringValues(str, options) {
+    var obj = {};
+    var cleanStr = options.ignoreQueryPrefix ? str.replace(/^\?/, '') : str;
+    var limit = options.parameterLimit === Infinity ? undefined : options.parameterLimit;
+    var parts = cleanStr.split(options.delimiter, limit);
+
+    for (var i = 0; i < parts.length; ++i) {
+        var part = parts[i];
+
+        var bracketEqualsPos = part.indexOf(']=');
+        var pos = bracketEqualsPos === -1 ? part.indexOf('=') : bracketEqualsPos + 1;
+
+        var key, val;
+        if (pos === -1) {
+            key = options.decoder(part, defaults.decoder);
+            val = options.strictNullHandling ? null : '';
+        } else {
+            key = options.decoder(part.slice(0, pos), defaults.decoder);
+            val = options.decoder(part.slice(pos + 1), defaults.decoder);
+        }
+        if (has.call(obj, key)) {
+            obj[key] = [].concat(obj[key]).concat(val);
+        } else {
+            obj[key] = val;
+        }
+    }
+
+    return obj;
+};
+
+var parseObject = function (chain, val, options) {
+    var leaf = val;
+
+    for (var i = chain.length - 1; i >= 0; --i) {
+        var obj;
+        var root = chain[i];
+
+        if (root === '[]') {
+            obj = [];
+            obj = obj.concat(leaf);
+        } else {
+            obj = options.plainObjects ? Object.create(null) : {};
+            var cleanRoot = root.charAt(0) === '[' && root.charAt(root.length - 1) === ']' ? root.slice(1, -1) : root;
+            var index = parseInt(cleanRoot, 10);
+            if (
+                !isNaN(index)
+                && root !== cleanRoot
+                && String(index) === cleanRoot
+                && index >= 0
+                && (options.parseArrays && index <= options.arrayLimit)
+            ) {
+                obj = [];
+                obj[index] = leaf;
+            } else {
+                obj[cleanRoot] = leaf;
+            }
+        }
+
+        leaf = obj;
+    }
+
+    return leaf;
+};
+
+var parseKeys = function parseQueryStringKeys(givenKey, val, options) {
+    if (!givenKey) {
+        return;
+    }
+
+    // Transform dot notation to bracket notation
+    var key = options.allowDots ? givenKey.replace(/\.([^.[]+)/g, '[$1]') : givenKey;
+
+    // The regex chunks
+
+    var brackets = /(\[[^[\]]*])/;
+    var child = /(\[[^[\]]*])/g;
+
+    // Get the parent
+
+    var segment = brackets.exec(key);
+    var parent = segment ? key.slice(0, segment.index) : key;
+
+    // Stash the parent if it exists
+
+    var keys = [];
+    if (parent) {
+        // If we aren't using plain objects, optionally prefix keys
+        // that would overwrite object prototype properties
+        if (!options.plainObjects && has.call(Object.prototype, parent)) {
+            if (!options.allowPrototypes) {
+                return;
+            }
+        }
+
+        keys.push(parent);
+    }
+
+    // Loop through children appending to the array until we hit depth
+
+    var i = 0;
+    while ((segment = child.exec(key)) !== null && i < options.depth) {
+        i += 1;
+        if (!options.plainObjects && has.call(Object.prototype, segment[1].slice(1, -1))) {
+            if (!options.allowPrototypes) {
+                return;
+            }
+        }
+        keys.push(segment[1]);
+    }
+
+    // If there's a remainder, just add whatever is left
+
+    if (segment) {
+        keys.push('[' + key.slice(segment.index) + ']');
+    }
+
+    return parseObject(keys, val, options);
+};
+
+module.exports = function (str, opts) {
+    var options = opts ? utils.assign({}, opts) : {};
+
+    if (options.decoder !== null && options.decoder !== undefined && typeof options.decoder !== 'function') {
+        throw new TypeError('Decoder has to be a function.');
+    }
+
+    options.ignoreQueryPrefix = options.ignoreQueryPrefix === true;
+    options.delimiter = typeof options.delimiter === 'string' || utils.isRegExp(options.delimiter) ? options.delimiter : defaults.delimiter;
+    options.depth = typeof options.depth === 'number' ? options.depth : defaults.depth;
+    options.arrayLimit = typeof options.arrayLimit === 'number' ? options.arrayLimit : defaults.arrayLimit;
+    options.parseArrays = options.parseArrays !== false;
+    options.decoder = typeof options.decoder === 'function' ? options.decoder : defaults.decoder;
+    options.allowDots = typeof options.allowDots === 'boolean' ? options.allowDots : defaults.allowDots;
+    options.plainObjects = typeof options.plainObjects === 'boolean' ? options.plainObjects : defaults.plainObjects;
+    options.allowPrototypes = typeof options.allowPrototypes === 'boolean' ? options.allowPrototypes : defaults.allowPrototypes;
+    options.parameterLimit = typeof options.parameterLimit === 'number' ? options.parameterLimit : defaults.parameterLimit;
+    options.strictNullHandling = typeof options.strictNullHandling === 'boolean' ? options.strictNullHandling : defaults.strictNullHandling;
+
+    if (str === '' || str === null || typeof str === 'undefined') {
+        return options.plainObjects ? Object.create(null) : {};
+    }
+
+    var tempObj = typeof str === 'string' ? parseValues(str, options) : str;
+    var obj = options.plainObjects ? Object.create(null) : {};
+
+    // Iterate over the keys and setup the new object
+
+    var keys = Object.keys(tempObj);
+    for (var i = 0; i < keys.length; ++i) {
+        var key = keys[i];
+        var newObj = parseKeys(key, tempObj[key], options);
+        obj = utils.merge(obj, newObj, options);
+    }
+
+    return utils.compact(obj);
+};
+
+
+/***/ }),
+/* 17 */,
+/* 18 */,
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+function normalizeComponent (
+  scriptExports,
+  render,
+  staticRenderFns,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier, /* server only */
+  shadowMode, /* vue-cli only */
+  components, // fixed by xxxxxx auto components
+  renderjs // fixed by xxxxxx renderjs
+) {
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // fixed by xxxxxx auto components
+  if (components) {
+    if (!options.components) {
+      options.components = {}
+    }
+    var hasOwn = Object.prototype.hasOwnProperty
+    for (var name in components) {
+      if (hasOwn.call(components, name) && !hasOwn.call(options.components, name)) {
+        options.components[name] = components[name]
+      }
+    }
+  }
+  // fixed by xxxxxx renderjs
+  if (renderjs) {
+    (renderjs.beforeCreate || (renderjs.beforeCreate = [])).unshift(function() {
+      this[renderjs.__module] = this
+    });
+    (options.mixins || (options.mixins = [])).push(renderjs)
+  }
+
+  // render functions
+  if (render) {
+    options.render = render
+    options.staticRenderFns = staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = 'data-v-' + scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = shadowMode
+      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+      : injectStyles
+  }
+
+  if (hook) {
+    if (options.functional) {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      var originalRender = options.render
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return originalRender(h, context)
+      }
+    } else {
+      // inject component registration as beforeCreate hook
+      var existing = options.beforeCreate
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    }
+  }
+
+  return {
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+/* 23 */
+/*!*********************************************!*\
+  !*** E:/abp/modules/hello/abp-mall/Json.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var userInfo = {
+  status: 1,
+  data: {
+    id: 1,
+    mobile: 18888888888,
+    nickname: '校长',
+    portrait: 'http://117.50.40.186/static/孙允珠/1/001.png' },
+
+  msg: '提示' };
+
+/* 首页轮播图 */
+var carouselList = [{
+  src: "http://117.50.40.186/static/1.jpg",
+  background: "rgb(203, 87, 60)" },
+
+{
+  src: "http://117.50.40.186/static/孙允珠/1/001.png",
+  background: "rgb(205, 215, 218)" },
+
+{
+  src: "http://117.50.40.186/static/孙允珠/1/002.png",
+  background: "rgb(183, 73, 69)" }];
+
+
+/* 商品列表 */
+var goodsList = [{
+  image: "http://117.50.40.186/static/孙允珠/1/003.png",
+  image2: "http://117.50.40.186/static/孙允珠/1/004.png",
+  image3: "http://117.50.40.186/static/孙允珠/1/005.png",
+  title: "古黛妃 短袖t恤女夏装2019新款韩版宽松",
+  price: 179,
+  sales: 61 },
+
+{
+  image: "http://117.50.40.186/static/孙允珠/1/006.png",
+  image2: "http://117.50.40.186/static/孙允珠/1/007.png",
+  image3: "http://117.50.40.186/static/孙允珠/1/008.png",
+  title: "潘歌针织连衣裙",
+  price: 78,
+  sales: 16 },
+
+{
+  image: "http://117.50.40.186/static/孙允珠/3/005.png",
+  image2: "http://117.50.40.186/static/孙允珠/3/005.png",
+  image3: "http://117.50.40.186/static/孙允珠/3/005.png",
+  title: "巧谷2019春夏季新品新款女装",
+  price: 108.8,
+  sales: 5 },
+{
+  image: "http://117.50.40.186/static/孙允珠/1/009.png",
+  image2: "http://117.50.40.186/static/孙允珠/1/010.png",
+  image3: "http://117.50.40.186/static/孙允珠/1/011.png",
+  title: "私萱连衣裙",
+  price: 265,
+  sales: 88 },
+{
+  image: "http://117.50.40.186/static/孙允珠/1/012.png",
+  image2: "http://117.50.40.186/static/孙允珠/1/013.png",
+  image3: "http://117.50.40.186/static/孙允珠/1/014.png",
+  title: "娇诗茹-原宿风学生潮韩版春夏短",
+  price: 422,
+  sales: 137 },
+{
+  image: "http://117.50.40.186/static/孙允珠/2/001.png",
+  image2: "http://117.50.40.186/static/孙允珠/2/002.png",
+  image3: "http://117.50.40.186/static/孙允珠/2/003.png",
+  title: "古黛妃 短袖t恤女夏装2019新款韩版宽松",
+  price: 179,
+  sales: 95 }];
+
+
+
+/* 购物车 */
+var cartList = [{
+  id: 1,
+  image: 'https://www.tallper.net/api/app/image/6',
+  attr_val: '你好，校长',
+  stock: 15,
+  title: 'OVBE 长袖风衣',
+  price: 278.00,
+  number: 1 },
+
+{
+  id: 3,
+  image: 'http://117.50.40.186/static/孙允珠/2/005.png',
+  attr_val: '激光导航 扫拖一体',
+  stock: 3,
+  title: '科沃斯 Ecovacs 扫地机器人',
+  price: 1348.00,
+  number: 5 },
+
+{
+  id: 4,
+  image: 'http://117.50.40.186/static/孙允珠/2/006.png',
+  attr_val: 'XL',
+  stock: 55,
+  title: '朵绒菲小西装',
+  price: 175.88,
+  number: 1 },
+
+{
+  id: 5,
+  image: 'http://117.50.40.186/static/孙允珠/1/008.png',
+  attr_val: '520 #粉红色',
+  stock: 15,
+  title: '迪奥（Dior）烈艳唇膏',
+  price: 1089.00,
+  number: 1 },
+
+{
+  id: 6,
+  image: 'http://117.50.40.186/static/孙允珠/2/006.png',
+  attr_val: '樱花味润手霜 30ml',
+  stock: 15,
+  title: "欧舒丹（L'OCCITANE）乳木果",
+  price: 128,
+  number: 1 },
+
+{
+  id: 7,
+  image: 'http://117.50.40.186/static/孙允珠/1/008.png',
+  attr_val: '特级 12个',
+  stock: 7,
+  title: '新疆阿克苏苹果 特级',
+  price: 58.8,
+  number: 10 },
+
+{
+  id: 8,
+  image: 'http://117.50.40.186/static/孙允珠/2/009.png',
+  attr_val: '激光导航 扫拖一体',
+  stock: 15,
+  title: '科沃斯 Ecovacs 扫地机器人',
+  price: 1348.00,
+  number: 1 },
+
+{
+  id: 9,
+  image: 'http://117.50.40.186/static/孙允珠/2/010.png',
+  attr_val: 'XL',
+  stock: 55,
+  title: '朵绒菲小西装',
+  price: 175.88,
+  number: 1 },
+
+{
+  id: 10,
+  image: 'http://117.50.40.186/static/孙允珠/1/008.png',
+  attr_val: '520 #粉红色',
+  stock: 15,
+  title: '迪奥（Dior）烈艳唇膏',
+  price: 1089.00,
+  number: 1 },
+
+{
+  id: 11,
+  image: 'http://117.50.40.186/static/孙允珠/2/011.png',
+  attr_val: '樱花味润手霜 30ml',
+  stock: 15,
+  title: "欧舒丹（L'OCCITANE）乳木果",
+  price: 128,
+  number: 1 },
+
+{
+  id: 12,
+  image: 'http://117.50.40.186/static/孙允珠/1/008.png',
+  attr_val: '特级 12个',
+  stock: 7,
+  title: '新疆阿克苏苹果 特级',
+  price: 58.8,
+  number: 10 },
+
+{
+  id: 13,
+  image: 'http://117.50.40.186/static/孙允珠/1/008.png',
+  attr_val: '春装款/m',
+  stock: 15,
+  title: '女装2019春秋新款',
+  price: 420.00,
+  number: 1 }];
+
+
+//详情展示页面
+var detailData = {
+  title: '纯种金毛幼犬活体有血统证书',
+  title2: '拆家小能手 你值得拥有',
+  favorite: true,
+  imgList: [{
+    src: 'http://117.50.40.186/static/孙允珠/2/016.png' },
+
+  {
+    src: 'http://117.50.40.186/static/孙允珠/2/012.png' },
+
+  {
+    src: 'http://117.50.40.186/static/孙允珠/2/013.png' },
+
+  {
+    src: 'http://117.50.40.186/static/孙允珠/2/014.png' }],
+
+
+  episodeList: [
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
+
+  guessList: [{
+    src: 'http://117.50.40.186/static/孙允珠/2/020.png',
+    title: '猫眼指甲油',
+    title2: '独树一帜的免照灯猫眼指甲' },
+
+  {
+    src: 'http://117.50.40.186/static/孙允珠/3/005.png',
+    title: '创意屋',
+    title2: '创意屋形上下双层高低床' },
+
+  {
+    src: 'http://117.50.40.186/static/孙允珠/3/001.png',
+    title: 'MissCandy 指甲油',
+    title2: '十分适合喜欢素净的妹纸，尽显淡雅的气质' },
+
+  {
+    src: 'http://117.50.40.186/static/孙允珠/3/002.png',
+    title: 'RMK 2017星空海蓝唇釉',
+    title2: '唇釉质地，上唇后很滋润。少女也会心动的蓝色，透明液体形状。' }],
+
+
+  evaList: [{
+    src: 'http://117.50.40.186/static/孙允珠/3/007.png',
+    nickname: 'Ranth Allngal',
+    time: '09-20 12:54',
+    zan: '54',
+    content: '评论不要太苛刻，不管什么产品都会有瑕疵，' },
+
+  {
+    src: 'http://117.50.40.186/static/孙允珠/3/008.png',
+    nickname: 'Ranth Allngal',
+    time: '09-20 12:54',
+    zan: '54',
+    content: '楼上说的好有道理。' }] };
+
+
+
+var shareList = [{
+  type: 1,
+  icon: '/static/temp/share_wechat.png',
+  text: '微信好友' },
+
+{
+  type: 2,
+  icon: '/static/temp/share_moment.png',
+  text: '朋友圈' },
+
+{
+  type: 3,
+  icon: '/static/temp/share_qq.png',
+  text: 'QQ好友' },
+
+{
+  type: 4,
+  icon: '/static/temp/share_qqzone.png',
+  text: 'QQ空间' }];
+
+
+var lazyLoadList = [{
+  src: 'http://117.50.40.186/static/孙允珠/3/005.png' },
+
+{
+  src: 'http://117.50.40.186/static/孙允珠/3/005.png' },
+
+{
+  src: 'http://117.50.40.186/static/孙允珠/2/005.png' },
+
+{
+  src: 'http://117.50.40.186/static/孙允珠/3/005.png' },
+
+{
+  src: 'http://117.50.40.186/static/孙允珠/3/005.png' },
+
+{
+  src: 'http://117.50.40.186/static/孙允珠/3/005.png' },
+
+{
+  src: 'http://117.50.40.186/static/孙允珠/3/005.png' },
+
+{
+  src: 'http://117.50.40.186/static/孙允珠/3/005.png' },
+
+{
+  src: 'http://117.50.40.186/static/孙允珠/3/005.png' },
+
+{
+  src: 'http://117.50.40.186/static/孙允珠/3/005.png' },
+
+{
+  src: 'http://117.50.40.186/static/孙允珠/3/005.png' },
+
+{
+  src: 'http://117.50.40.186/static/孙允珠/3/005.png' },
+
+{
+  src: 'http://117.50.40.186/static/孙允珠/4/005.png' },
+
+{
+  src: 'http://117.50.40.186/static/孙允珠/4/005.png' },
+
+{
+  src: 'http://117.50.40.186/static/孙允珠/4/005.png' },
+
+{
+  src: 'http://117.50.40.186/static/孙允珠/4/005.png' },
+
+{
+  src: 'http://117.50.40.186/static/孙允珠/5/005.png' },
+
+{
+  src: 'http://117.50.40.186/static/孙允珠/3/005.png' },
+
+{
+  src: 'http://117.50.40.186/static/孙允珠/3/005.png' },
+
+{
+  src: 'http://117.50.40.186/static/孙允珠/3/005.png' }];
+
+
+
+var orderList = [{
+  time: '2019-04-06 11:37',
+  state: 1,
+  goodsList: [{
+    image: 'http://117.50.40.186/static/孙允珠/1/008.png' },
+
+  {
+    image: 'http://117.50.40.186/static/孙允珠/3/005.png' },
+
+  {
+    image: 'http://117.50.40.186/static/孙允珠/3/005.png' },
+
+  {
+    image: 'http://117.50.40.186/static/孙允珠/3/005.png' },
+
+  {
+    image: 'http://117.50.40.186/static/孙允珠/3/005.png' },
+
+  {
+    image: 'http://117.50.40.186/static/孙允珠/3/005.png' },
+
+  {
+    image: 'http://117.50.40.186/static/孙允珠/3/005.png' }] },
+
+
+
+{
+  time: '2019-04-06 11:37',
+  state: 9,
+  goodsList: [{
+    title: '古黛妃 短袖t恤女 春夏装2019新款韩版宽松',
+    price: 179.5,
+    image: 'http://117.50.40.186/static/孙允珠/3/005.png',
+    number: 1,
+    attr: '珊瑚粉 M' }] },
+
+
+{
+  time: '2019-04-06 11:37',
+  state: 1,
+  goodsList: [{
+    image: 'http://117.50.40.186/static/孙允珠/3/005.png' },
+
+  {
+    image: 'http://117.50.40.186/static/孙允珠/3/005.png' },
+
+  {
+    image: 'http://117.50.40.186/static/孙允珠/3/005.png' }] },
+
+
+
+{
+  time: '2019-04-06 11:37',
+  state: 1,
+  goodsList: [{
+    title: '回力女鞋高帮帆布鞋女学生韩版鞋子女2019潮鞋女鞋新款春季板鞋女',
+    price: 69,
+    image: 'http://117.50.40.186/static/孙允珠/3/005.png',
+    number: 1,
+    attr: '白色-高帮 39' }] },
+
+
+{
+  time: '2019-04-06 11:37',
+  state: 1,
+  goodsList: [{
+    image: 'http://117.50.40.186/static/孙允珠/3/005.png' },
+
+  {
+    image: 'http://117.50.40.186/static/孙允珠/3/005.png' }] },
+
+
+
+{
+  time: '2019-04-06 11:37',
+  state: 1,
+  goodsList: [{
+    image: 'http://117.50.40.186/static/孙允珠/3/005.png' },
+
+  {
+    image: 'http://117.50.40.186/static/孙允珠/3/005.png' },
+
+  {
+    image: 'http://117.50.40.186/static/孙允珠/3/005.png' }] }];
+
+
+
+
+
+var cateList = [{
+  id: 1,
+  name: '手机数码' },
+
+{
+  id: 2,
+  name: '礼品鲜花' },
+
+{
+  id: 3,
+  name: '男装女装' },
+
+{
+  id: 4,
+  name: '母婴用品' },
+
+{
+  id: 5,
+  pid: 1,
+  name: '手机通讯' },
+
+{
+  id: 6,
+  pid: 1,
+  name: '运营商' },
+
+{
+  id: 8,
+  pid: 5,
+  name: '全面屏手机',
+  picture: '/static/temp/cate2.jpg' },
+
+{
+  id: 9,
+  pid: 5,
+  name: '游戏手机',
+  picture: '/static/temp/cate3.jpg' },
+
+{
+  id: 10,
+  pid: 5,
+  name: '老人机',
+  picture: '/static/temp/cate1.jpg' },
+
+{
+  id: 11,
+  pid: 5,
+  name: '拍照手机',
+  picture: '/static/temp/cate4.jpg' },
+
+{
+  id: 12,
+  pid: 5,
+  name: '女性手机',
+  picture: '/static/temp/cate5.jpg' },
+
+{
+  id: 14,
+  pid: 6,
+  name: '合约机',
+  picture: '/static/temp/cate1.jpg' },
+
+{
+  id: 15,
+  pid: 6,
+  name: '选好卡',
+  picture: '/static/temp/cate4.jpg' },
+
+{
+  id: 16,
+  pid: 6,
+  name: '办套餐',
+  picture: '/static/temp/cate5.jpg' },
+
+{
+  id: 17,
+  pid: 2,
+  name: '礼品' },
+
+{
+  id: 18,
+  pid: 2,
+  name: '鲜花' },
+
+{
+  id: 19,
+  pid: 17,
+  name: '公益摆件',
+  picture: '/static/temp/cate7.jpg' },
+
+{
+  id: 20,
+  pid: 17,
+  name: '创意礼品',
+  picture: '/static/temp/cate8.jpg' },
+
+{
+  id: 21,
+  pid: 18,
+  name: '鲜花',
+  picture: '/static/temp/cate9.jpg' },
+
+{
+  id: 22,
+  pid: 18,
+  name: '每周一花',
+  picture: '/static/temp/cate10.jpg' },
+
+{
+  id: 23,
+  pid: 18,
+  name: '卡通花束',
+  picture: '/static/temp/cate11.jpg' },
+
+{
+  id: 24,
+  pid: 18,
+  name: '永生花',
+  picture: '/static/temp/cate12.jpg' },
+
+{
+  id: 25,
+  pid: 3,
+  name: '男装' },
+
+{
+  id: 26,
+  pid: 3,
+  name: '女装' },
+
+{
+  id: 27,
+  pid: 25,
+  name: '男士T恤',
+  picture: '/static/temp/cate13.jpg' },
+
+{
+  id: 28,
+  pid: 25,
+  name: '男士外套',
+  picture: '/static/temp/cate14.jpg' },
+
+{
+  id: 29,
+  pid: 26,
+  name: '裙装',
+  picture: '/static/temp/cate15.jpg' },
+
+{
+  id: 30,
+  pid: 26,
+  name: 'T恤',
+  picture: '/static/temp/cate16.jpg' },
+
+{
+  id: 31,
+  pid: 26,
+  name: '上装',
+  picture: '/static/temp/cate15.jpg' },
+
+{
+  id: 32,
+  pid: 26,
+  name: '下装',
+  picture: '/static/temp/cate16.jpg' },
+
+{
+  id: 33,
+  pid: 4,
+  name: '奶粉' },
+
+{
+  id: 34,
+  pid: 4,
+  name: '营养辅食' },
+
+{
+  id: 35,
+  pid: 4,
+  name: '童装' },
+
+{
+  id: 39,
+  pid: 4,
+  name: '喂养用品' },
+
+{
+  id: 36,
+  pid: 33,
+  name: '有机奶粉',
+  picture: '/static/temp/cate17.jpg' },
+
+{
+  id: 37,
+  pid: 34,
+  name: '果泥/果汁',
+  picture: '/static/temp/cate18.jpg' },
+
+{
+  id: 39,
+  pid: 34,
+  name: '面条/粥',
+  picture: '/static/temp/cate20.jpg' },
+
+{
+  id: 42,
+  pid: 35,
+  name: '婴童衣橱',
+  picture: '/static/temp/cate19.jpg' },
+
+{
+  id: 43,
+  pid: 39,
+  name: '吸奶器',
+  picture: '/static/temp/cate21.jpg' },
+
+{
+  id: 44,
+  pid: 39,
+  name: '儿童餐具',
+  picture: '/static/temp/cate22.jpg' },
+
+{
+  id: 45,
+  pid: 39,
+  name: '牙胶安抚',
+  picture: '/static/temp/cate23.jpg' },
+
+{
+  id: 46,
+  pid: 39,
+  name: '围兜',
+  picture: '/static/temp/cate24.jpg' }];var _default =
+
+
+
+{
+  carouselList: carouselList,
+  cartList: cartList,
+  detailData: detailData,
+  lazyLoadList: lazyLoadList,
+  userInfo: userInfo,
+  shareList: shareList,
+  goodsList: goodsList,
+  orderList: orderList,
+  cateList: cateList };exports.default = _default;
 
 /***/ })
 ]]);
