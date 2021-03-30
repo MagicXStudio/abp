@@ -320,3 +320,5 @@ tempkey.jwk
 /modules/cms-kit/src/Volo.CmsKit.Common.Web/Properties/launchSettings.json
 /modules/cms-kit/src/Volo.CmsKit.Web/Properties/launchSettings.json
 /modules/hello/abp-mall/unpackage
+/modules/hello/abp-mall/unpackage/dist
+/modules/hello/abp-mall/node_modules

@@ -1,11 +1,16 @@
 <template>
 	<view class="content">
 		<scroll-view scroll-y class="left-aside">
-			<view v-for="item in flist" :key="item.id" class="f-item b-b" :class="{active: item.id === currentId}" @click="tabtap(item)">
+			<view v-for="item in country.items" 
+			:key="item.id" class="f-item b-b" 
+			:class="{active: item.id === currentId}" 
+			@click="tabtap(item)">
 				{{item.name}}
 			</view>
 		</scroll-view>
-		<scroll-view scroll-with-animation scroll-y class="right-aside" @scroll="asideScroll" :scroll-top="tabScrollTop">
+		<scroll-view scroll-with-animation scroll-y class="right-aside" 
+		@scroll="asideScroll" 
+		:scroll-top="tabScrollTop">
 			<view v-for="item in slist" :key="item.id" class="s-list" :id="'main-'+item.id">
 				<text class="s-item">{{item.name}}</text>
 				<view class="t-list">
@@ -20,6 +25,7 @@
 </template>
 
 <script>
+	import { mapActions, mapState, mapMutations, mapGetters } from "vuex";
 	export default {
 		data() {
 			return {
@@ -32,21 +38,23 @@
 			}
 		},
 		onLoad(){
-			this.loadData();
+			this.getCountries().then(x=>{
+				console.table(this.country.items);
+			});
+			
+		},
+		computed: {
+		    ...mapState({
+		        country: state => state.category.country
+		    })
 		},
 		methods: {
-			async loadData(){
-				let list = await this.$api.json('cateList');
-				list.forEach(item=>{
-					if(!item.pid){
-						this.flist.push(item);  //pid为父级id, 没有pid或者pid=0是一级分类
-					}else if(!item.picture){
-						this.slist.push(item); //没有图的是2级分类
-					}else{
-						this.tlist.push(item); //3级分类
-					}
-				}) 
-			},
+			...mapMutations({
+			    login: "account/login",
+			}),
+			      ...mapActions({
+			        getCountries: "category/getCountries",
+			      }),
 			//一级分类点击
 			tabtap(item){
 				if(!this.sizeCalcState){
