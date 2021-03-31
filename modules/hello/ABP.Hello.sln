@@ -199,6 +199,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.Authorization", ".
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.IdentityServer.Domain", "..\identityserver\src\Volo.Abp.IdentityServer.Domain\Volo.Abp.IdentityServer.Domain.csproj", "{FBB0D180-D0A6-4C29-AB97-C9B87A4DDD2B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volo.Abp.Http.Client.IdentityModel", "..\..\framework\src\Volo.Abp.Http.Client.IdentityModel\Volo.Abp.Http.Client.IdentityModel.csproj", "{02B80A20-F82C-4D70-B921-D84921DC4EB2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -545,6 +547,10 @@ Global
 		{FBB0D180-D0A6-4C29-AB97-C9B87A4DDD2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBB0D180-D0A6-4C29-AB97-C9B87A4DDD2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBB0D180-D0A6-4C29-AB97-C9B87A4DDD2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02B80A20-F82C-4D70-B921-D84921DC4EB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02B80A20-F82C-4D70-B921-D84921DC4EB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02B80A20-F82C-4D70-B921-D84921DC4EB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02B80A20-F82C-4D70-B921-D84921DC4EB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -644,6 +650,7 @@ Global
 		{49AFF3F1-8A9E-4F07-80E4-773A2054FBA1} = {CAA5C392-ADD1-4398-B37E-6D8F0EA2A390}
 		{46BCE8B0-4CB8-4BAF-AB7C-10295848F7B3} = {CAA5C392-ADD1-4398-B37E-6D8F0EA2A390}
 		{FBB0D180-D0A6-4C29-AB97-C9B87A4DDD2B} = {EA7000FC-B2DB-4DF8-846E-B77CC82F18EC}
+		{02B80A20-F82C-4D70-B921-D84921DC4EB2} = {CAA5C392-ADD1-4398-B37E-6D8F0EA2A390}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28315BFD-90E7-4E14-A2EA-F3D23AF4126F}

@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ABP.Hello.Users;
 using Shouldly;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Volo.Abp.Domain.Repositories;
 using Xunit;
+using Volo.Abp.Identity;
 
 namespace ABP.Hello.EntityFrameworkCore.Samples
 {
@@ -16,11 +16,11 @@ namespace ABP.Hello.EntityFrameworkCore.Samples
      */
     public class SampleRepositoryTests : HelloEntityFrameworkCoreTestBase
     {
-        private readonly IRepository<AppUser, Guid> _appUserRepository;
+        private readonly IRepository<IdentityUser, Guid> _appUserRepository;
 
         public SampleRepositoryTests()
         {
-            _appUserRepository = GetRequiredService<IRepository<AppUser, Guid>>();
+            _appUserRepository = GetRequiredService<IRepository<IdentityUser, Guid>>();
         }
 
         [Fact]

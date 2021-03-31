@@ -4,7 +4,7 @@
 			<view v-for="item in country.items" 
 			:key="item.id" class="f-item b-b" 
 			:class="{active: item.id === currentId}" 
-			@click="tabtap(item)">
+			@click="tabTap(item)">
 				{{item.name}}
 			</view>
 		</scroll-view>
@@ -56,7 +56,8 @@
 			        getCountries: "category/getCountries",
 			      }),
 			//一级分类点击
-			tabtap(item){
+			tabTap(item){
+				debugger;
 				if(!this.sizeCalcState){
 					this.calcSize();
 				}
