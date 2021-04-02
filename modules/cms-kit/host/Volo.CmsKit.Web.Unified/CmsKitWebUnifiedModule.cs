@@ -83,7 +83,7 @@ namespace Volo.CmsKit
 
             Configure<AbpDbContextOptions>(options =>
             {
-                options.UseSqlServer();
+                options.UseMySQL();
             });
 
             if (hostingEnvironment.IsDevelopment())
