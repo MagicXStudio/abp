@@ -45,6 +45,7 @@ using Microsoft.AspNetCore.Http;
 using Volo.Abp.BackgroundWorkers;
 using Volo.Abp.MultiTenancy;
 using Volo.Abp.AspNetCore.Mvc.UI.Theming;
+using Volo.Abp.AspNetCore.Security.Claims;
 
 namespace ABP.Hello.Web
 {
@@ -85,6 +86,10 @@ namespace ABP.Hello.Web
             Configure<AbpBackgroundJobOptions>(options =>
             {
                 options.IsJobExecutionEnabled = false;
+            });
+            Configure<AbpClaimsMapOptions>(x =>
+            {
+                x.Maps.Add("nickname", () => "AngkorW");
             });
             Configure<AbpAspNetCoreMultiTenancyOptions>(options =>
             {
@@ -261,7 +266,7 @@ namespace ABP.Hello.Web
             {
                 app.UseMultiTenancy();
             }
-
+            app.UseAbpClaimsMap();
             app.UseUnitOfWork();
             app.UseIdentityServer();
             app.UseAuthorization();
