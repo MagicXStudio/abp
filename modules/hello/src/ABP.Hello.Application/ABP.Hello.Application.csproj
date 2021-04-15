@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+	<PackageReference Include="MediatR" Version="9.0.0" />
     <ProjectReference Include="..\..\..\account\src\Volo.Abp.Account.Application\Volo.Abp.Account.Application.csproj" />
     <ProjectReference Include="..\..\..\feature-management\src\Volo.Abp.FeatureManagement.Application\Volo.Abp.FeatureManagement.Application.csproj" />
     <ProjectReference Include="..\..\..\identity\src\Volo.Abp.Identity.Application\Volo.Abp.Identity.Application.csproj" />
