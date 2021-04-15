@@ -1,8 +1,9 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Threading.Tasks;
+using EasyAbp.Abp.EventBus.Cap;
 using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -34,7 +35,6 @@ using Volo.Abp.IdentityServer.Jwt;
 using Volo.Abp.Modularity;
 using Volo.Abp.PermissionManagement;
 using Volo.Abp.PermissionManagement.Identity;
-using Volo.Abp.TenantManagement.Web;
 using Volo.Abp.Threading;
 using Volo.Abp.UI;
 using Volo.Abp.VirtualFileSystem;
@@ -58,7 +58,7 @@ namespace Volo.BloggingTestApp
         typeof(AbpPermissionManagementDomainIdentityModule),
         typeof(AbpPermissionManagementApplicationModule),
         typeof(BlobStoringDatabaseDomainModule),
-        
+
         typeof(AbpAutofacModule),
         typeof(AbpAspNetCoreMvcUiBasicThemeModule)
     )]
@@ -134,7 +134,7 @@ namespace Volo.BloggingTestApp
                     options.SwaggerDoc("v1", new OpenApiInfo { Title = "Blogging API", Version = "v1" });
                     options.DocInclusionPredicate((docName, description) => true);
                     options.CustomSchemaIds(type => type.FullName);
-                    //���Ӷ�ȡע�ͷ���
+                    //Ìí¼Ó¶ÁÈ¡×¢ÊÍ·þÎñ
                     options.IncludeXmlComments($"{Environment.CurrentDirectory}/bin/Debug/net5.0/Volo.Blogging.Admin.Application.xml", true);
                 });
 
@@ -171,8 +171,46 @@ namespace Volo.BloggingTestApp
             {
                 x.TokenCookie.HttpOnly = true;
             });
+            ConfigCapEventBus(context);
         }
 
+        private void ConfigCapEventBus(ServiceConfigurationContext context)
+        {
+            context.AddCapEventBus(capOptions =>
+            {
+                capOptions.ProducerThreadCount = Environment.ProcessorCount;
+                capOptions.ConsumerThreadCount = Environment.ProcessorCount;
+                capOptions.DefaultGroupName = "Volo.Blogging.Cap-Queue";
+                capOptions.FailedThresholdCallback = (failed) =>
+                {
+                    switch (failed.MessageType)
+                    {
+                        case DotNetCore.CAP.Messages.MessageType.Publish:
+                            System.Diagnostics.Debug.WriteLine(failed.Message);
+                            break;
+                        case DotNetCore.CAP.Messages.MessageType.Subscribe:
+                            System.Diagnostics.Debug.WriteLine(failed.Message);
+                            break;
+                        default:
+                            break;
+                    }
+                };
+                capOptions.UseSqlServer(Config["ConnectionStrings:Cap"]);
+                capOptions.UseRabbitMQ(x =>
+                {
+                    x.HostName = "47.98.226.195";
+                    x.UserName = "admin";
+                    x.Password = "zxcvbnm";
+                    x.VirtualHost = "/";
+                });// 服务器地址配置，支持配置IP地址和密码
+                capOptions.UseDashboard(dashboard =>
+                {
+                    //DotNetCore.CAP.Dashboard.LocalRequestsOnlyAuthorizationFilter
+                    dashboard.StatsPollingInterval = 600;
+                    dashboard.PathMatch = "/cap/dashboard";
+                });
+            });
+        }
         public override void OnApplicationInitialization(ApplicationInitializationContext context)
         {
             var app = context.GetApplicationBuilder();
@@ -185,7 +223,7 @@ namespace Volo.BloggingTestApp
             {
                 app.UseErrorPage();
             }
-            app.UseMiddleware<AdminSafeMiddleware>(Config["ip"]);
+            // app.UseMiddleware<AdminSafeMiddleware>(Config["ip"]);
             app.UseAbpClaimsMap();
             app.UseVirtualFiles();
             app.UseUnitOfWork();
@@ -202,7 +240,6 @@ namespace Volo.BloggingTestApp
             app.UseJwtTokenMiddleware("Bearer");
             app.UseAbpRequestLocalization();
             app.UseAuditing();
-            // app.UseAbpSerilogEnrichers();
             app.UseConfiguredEndpoints();
 
             using (var scope = context.ServiceProvider.CreateScope())
