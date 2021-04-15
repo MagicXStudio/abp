@@ -1,4 +1,6 @@
-﻿using Volo.Abp.Account;
+﻿using MediatR;
+using Volo.Abp.Account;
+using Volo.Abp.Application.Dtos;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.FeatureManagement;
 using Volo.Abp.Identity;
@@ -21,6 +23,7 @@ namespace ABP.Hello
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
+            context.Services.AddMediatR(mediatr => mediatr.AsScoped(), typeof(IEntityDto), typeof(EntityDto));
             Configure<AbpAutoMapperOptions>(options =>
             {
                 options.AddMaps<HelloApplicationModule>();
